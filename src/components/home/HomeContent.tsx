@@ -6,6 +6,7 @@ import Programmer from "../../../public/prgmr6.png";
 import ReactImage from "../../../public/React_Logo_SVG.svg";
 import ThreeLine from "../elements/ThreeLine";
 import { motion } from "framer-motion";
+import BackgroundSvg from "../about/BackgroundSvg";
 
 type Props = {};
 
@@ -47,7 +48,7 @@ const HomeContent = (props: Props) => {
         }}
         className="borde flex h-full w-[60%] items-center  justify-center   border-red-700"
       >
-        <div className="shado borde   flex w-[70%] flex-col overflow-hidden rounded-xl border-priClr  text-5xl  font-bold text-slate-50 shadow-actClr dark:text-slate-200">
+        <div className=" borde   flex w-[70%] flex-col overflow-hidden rounded-xl border-priClr  text-5xl  font-bold text-slate-50 shadow-md shadow-priClr dark:text-slate-200">
           <div className=" z-10  bg-vscodeClr1 shadow-sm shadow-black">
             <div className="flex h-full  w-fit  gap-1 bg-vscodeClr p-3">
               <Image alt="ReactImage" src={ReactImage} width={20} height={20} />
@@ -92,8 +93,11 @@ const HomeContent = (props: Props) => {
         }}
         className="borde justify- flex h-full w-[40%] items-center border-red-700"
       >
-        <div className="programmer shadowImg relative h-[70%]  w-[70%]  overflow-hidden rounded-full border-4 border-actClr object-contain p-5">
-          <Image className="" fill alt="Image" src={Programmer} />
+        <div className=" programmer shadowImg relative h-[70%]  w-[70%]  overflow-hidden rounded-full border-4 border-actClr object-contain p-5">
+          <Image className="z-10" fill alt="Image" src={Programmer} />
+          {/* <div className="borde  absolute h-full w-full border-white object-contain">
+            <BackgroundSvg />
+          </div> */}
         </div>
       </motion.div>
     </div>

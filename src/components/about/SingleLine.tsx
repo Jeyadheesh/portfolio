@@ -1,11 +1,26 @@
-import { motion } from "framer-motion";
+import { Variants, motion } from "framer-motion";
 import React from "react";
 
-type Props = {};
+type Props = {
+  delay?: number;
+};
 
-const SingleLine = (props: Props) => {
+const SingleLine = ({ delay }: Props) => {
+  const pathItem: Variants = {
+    hidden: { scale: 0 },
+    visible: {
+      scale: 1,
+      transition: {
+        delay: delay,
+      },
+    },
+  };
   return (
-    <div className="borde mx-auto w-8 border-purple-400">
+    <motion.div
+      variants={pathItem}
+      // transition={{ delay: 2 }}
+      className="borde mx-auto w-8 border-purple-400"
+    >
       <div className="after:h-3 after:w-10 after:bg-white after:content-[''] ">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -14,7 +29,7 @@ const SingleLine = (props: Props) => {
         >
           <g
             strokeWidth="14"
-            stroke="hsl(227, 71%, 57%)"
+            stroke="rgb(217 21 154)"
             fill="none"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -47,7 +62,7 @@ const SingleLine = (props: Props) => {
           </defs>
         </svg>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

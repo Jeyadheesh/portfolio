@@ -32,17 +32,7 @@ const Navbar = (props: Props) => {
           <div>Projects</div>
           <div>About</div>
           <div>Contact Us</div>
-          <svg height="30" width="200">
-            <motion.text
-              initial={{ textLength: 0 }}
-              animate={{ textLength: 85 }}
-              x="0"
-              y="15"
-              fill="red"
-            >
-              Dark Mode
-            </motion.text>
-          </svg>
+          <div>Dark Mode</div>
         </div>
       </div>
     </div>

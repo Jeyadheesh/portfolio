@@ -24,7 +24,7 @@ const AboutContent = (props: Props) => {
       transition: {
         // delay: 1,
         delayChildren: 0.2,
-        staggerChildren: 0.1,
+        staggerChildren: 0.5,
       },
     },
   };

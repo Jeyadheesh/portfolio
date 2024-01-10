@@ -2,6 +2,7 @@ import Navbar from "@/components/navbar/Navbar";
 import HomeContent from "@/components/home/HomeContent";
 import Image from "next/image";
 import AboutContent from "@/components/about/AboutContent copy";
+import ProjectBox from "@/components/projects/ProjectBox";
 
 export default function Home() {
   return (
@@ -15,6 +16,11 @@ export default function Home() {
       {/* About */}
       <div className="borde flex min-h-[100vh] flex-col items-center justify-center border-white pb-5">
         <AboutContent />
+      </div>
+
+      {/* Projects */}
+      <div className="min-h-screen">
+        <ProjectBox />
       </div>
     </div>
   );
