@@ -2,7 +2,7 @@ import Navbar from "@/components/navbar/Navbar";
 import HomeContent from "@/components/home/HomeContent";
 import Image from "next/image";
 import AboutContent from "@/components/about/AboutContent copy";
-import ProjectBox from "@/components/projects/ProjectBox";
+import ProjectsContent from "@/components/projects/ProjectsContent";
 
 export default function Home() {
   return (
@@ -20,7 +20,7 @@ export default function Home() {
 
       {/* Projects */}
       <div className="min-h-screen">
-        <ProjectBox />
+        <ProjectsContent />
       </div>
     </div>
   );

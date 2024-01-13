@@ -10,7 +10,7 @@ interface Props {}
 
 const Navbar = (props: Props) => {
   return (
-    <div className=" h-[13vh] bg-gray-900 text-slate-50 shadow-lg shadow-white ">
+    <div className="h-[13vh] bg-gray-900 text-slate-50 shadow-lg shadow-white ">
       <div className="flex h-full items-center justify-around font-semibold ">
         <Link href={"/"} className="borde  relative h-full w-24 border-white">
           <Image alt="Logo" src={Logo} fill className="object-contain" />

@@ -42,25 +42,25 @@ const BackgroundSvg = ({ className }: Props) => {
             id="vvvortex-grad"
           >
             <stop
-              stop-color="hsl(221, 0%, 67%)"
-              stop-opacity="1"
+              stopColor="hsl(221, 0%, 67%)"
+              stopOpacity="1"
               offset="0%"
             ></stop>
             <stop
-              stop-color="hsl(316, 73%, 52%)"
-              stop-opacity="1"
+              stopColor="hsl(316, 73%, 52%)"
+              stopOpacity="1"
               offset="100%"
             ></stop>
           </linearGradient>
         </defs>
-        <g stroke="url(#vvvortex-grad)" fill="none" stroke-linecap="round">
+        <g stroke="url(#vvvortex-grad)" fill="none" strokeLinecap="round">
           <circle
             r="384"
             cx="400"
             cy="400"
-            stroke-width="11"
-            stroke-dasharray="35 45"
-            stroke-dashoffset="25"
+            strokeWidth="11"
+            strokeDasharray="35 45"
+            strokeDashoffset="25"
             transform="rotate(6, 400, 400)"
             opacity="0.05"
           ></circle>
@@ -68,9 +68,9 @@ const BackgroundSvg = ({ className }: Props) => {
             r="336"
             cx="400"
             cy="400"
-            stroke-width="10"
-            stroke-dasharray="24 39"
-            stroke-dashoffset="25"
+            strokeWidth="10"
+            strokeDasharray="24 39"
+            strokeDashoffset="25"
             transform="rotate(257, 400, 400)"
             opacity="0.19"
           ></circle>
@@ -78,9 +78,9 @@ const BackgroundSvg = ({ className }: Props) => {
             r="288"
             cx="400"
             cy="400"
-            stroke-width="9"
-            stroke-dasharray="38 32"
-            stroke-dashoffset="25"
+            strokeWidth="9"
+            strokeDasharray="38 32"
+            strokeDashoffset="25"
             transform="rotate(37, 400, 400)"
             opacity="0.32"
           ></circle>
@@ -88,9 +88,9 @@ const BackgroundSvg = ({ className }: Props) => {
             r="240"
             cx="400"
             cy="400"
-            stroke-width="8"
-            stroke-dasharray="13 49"
-            stroke-dashoffset="25"
+            strokeWidth="8"
+            strokeDasharray="13 49"
+            strokeDashoffset="25"
             transform="rotate(49, 400, 400)"
             opacity="0.46"
           ></circle>
@@ -98,9 +98,9 @@ const BackgroundSvg = ({ className }: Props) => {
             r="192"
             cx="400"
             cy="400"
-            stroke-width="8"
-            stroke-dasharray="51 22"
-            stroke-dashoffset="25"
+            strokeWidth="8"
+            strokeDasharray="51 22"
+            strokeDashoffset="25"
             transform="rotate(50, 400, 400)"
             opacity="0.59"
           ></circle>
@@ -108,9 +108,9 @@ const BackgroundSvg = ({ className }: Props) => {
             r="144"
             cx="400"
             cy="400"
-            stroke-width="7"
-            stroke-dasharray="42 40"
-            stroke-dashoffset="25"
+            strokeWidth="7"
+            strokeDasharray="42 40"
+            strokeDashoffset="25"
             transform="rotate(197, 400, 400)"
             opacity="0.73"
           ></circle>
@@ -118,9 +118,9 @@ const BackgroundSvg = ({ className }: Props) => {
             r="96"
             cx="400"
             cy="400"
-            stroke-width="6"
-            stroke-dasharray="14 45"
-            stroke-dashoffset="25"
+            strokeWidth="6"
+            strokeDasharray="14 45"
+            strokeDashoffset="25"
             transform="rotate(45, 400, 400)"
             opacity="0.86"
           ></circle>
@@ -128,9 +128,9 @@ const BackgroundSvg = ({ className }: Props) => {
             r="48"
             cx="400"
             cy="400"
-            stroke-width="5"
-            stroke-dasharray="20 23"
-            stroke-dashoffset="25"
+            strokeWidth="5"
+            strokeDasharray="20 23"
+            strokeDashoffset="25"
             transform="rotate(340, 400, 400)"
             opacity="1.00"
           ></circle>

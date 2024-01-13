@@ -79,3 +79,19 @@ export const Languages = [
     position: "top-[90%] left-[35%] h-[12%] w-[12%]  p-2",
   },
 ];
+
+export const ProjectLanguages = {
+  html: Html1,
+  css: Css1,
+  javascript: Js1,
+  nextjs: NextJs1,
+  express: Express1,
+  mongodb: Mongodb,
+  mysql: Mysql1,
+  nodejs: Nodejs1,
+  react: React1,
+  tailwind: Tailwind1,
+  c: C,
+  python: Python,
+  java: Java,
+};

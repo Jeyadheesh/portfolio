@@ -208,7 +208,7 @@ const AboutContent = (props: Props) => {
                     }}
                     key={i}
                     style={{ translateX: "-50%", translateY: "-50%" }}
-                    className={`${data.position}  absolute rounded-full bg-white object-contain `}
+                    className={`${data.position} absolute rounded-full bg-white object-contain `}
                   >
                     <div className="relative h-full w-full ">
                       <Image
