@@ -3,6 +3,7 @@ import HomeContent from "@/components/home/HomeContent";
 import Image from "next/image";
 import AboutContent from "@/components/about/AboutContent copy";
 import ProjectsContent from "@/components/projects/ProjectsContent";
+import ContactContent from "@/components/contact/ContactContent";
 
 export default function Home() {
   return (
@@ -21,6 +22,11 @@ export default function Home() {
       {/* Projects */}
       <div className="min-h-screen">
         <ProjectsContent />
+      </div>
+
+      {/* Contact */}
+      <div className="flex min-h-screen items-center justify-center">
+        <ContactContent />
       </div>
     </div>
   );

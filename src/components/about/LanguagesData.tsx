@@ -32,11 +32,11 @@ export const Languages = [
   },
   {
     image: React1,
-    position: "top-[45%] left-[25%] h-[15%] w-[15%]  p-2",
+    position: "top-[45%] left-[25%] h-[5rem] w-[5rem]  p-2",
   },
   {
     image: Nodejs1,
-    position: "top-[55%] left-[80%] h-[15%] w-[15%]  p-2",
+    position: "top-[55%] left-[80%] h-[6rem] w-[6rem]  p-2",
   },
   {
     image: Css1,

@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import PhoneBg from "./PhoneBg";
 import ProjectBox from "./ProjectBox";
 import axios from "axios";
+import { decode } from "base64-js";
 
 type Props = {};
 
@@ -16,30 +17,31 @@ const ProjectsContent = (props: Props) => {
   const token = process.env.NEXT_PUBLIC_GITHUB_TOKEN;
   console.log(token);
 
-  useEffect(() => {
-    const fetchReadme = async () => {
-      try {
-        const response = await axios.get(
-          `https://api.github.com/repos/${owner}/${repo}/contents/${path}`,
-          `https://api.github.com/repos/${owner}/${repo}/contents/${path}`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-              Accept: "application/vnd.github.v3.raw",
-            },
+  const fetchReadme = async () => {
+    try {
+      const response = await axios.get(
+        `https://api.github.com/repos/${owner}/${repo}/readme`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            Accept: "application/vnd.github.raw+json",
           },
-        );
+        },
+      );
 
-        // Safely decode base64-encoded content
-        const decodedContent = decodeBase64(response.data.content);
-        console.log(decodedContent);
+      // Decode base64-encoded content
+      // const decodedContent = atob(response.data.content);
+      console.log(response.data);
 
-        setReadmeContent(decodedContent);
-      } catch (error) {
-        console.error("Error fetching README:", error.message);
-      }
-    };
+      // Set the README content in state
+      // setReadmeContent(decodedContent);
+    } catch (error) {
+      console.log("Error fetching README:", error.message);
+    }
+  };
 
+  useEffect(() => {
+    // Call the fetchReadme function
     fetchReadme();
   }, []);
 

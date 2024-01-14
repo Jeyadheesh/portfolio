@@ -19,7 +19,7 @@ const Navbar = (props: Props) => {
           {/* lists */}
           <div className="borde relative border-black ">
             <Link className="peer" href={"/"}>
-              Home
+              Skills
             </Link>
             <ThreeLine
               className="borde -right-4  -top-2 border-black transition-all duration-200 peer-hover:-right-5 peer-hover:-top-3"
@@ -30,8 +30,7 @@ const Navbar = (props: Props) => {
             {/*  */}
           </div>
           <div>Projects</div>
-          <div>About</div>
-          <div>Contact Us</div>
+          <div>Contact</div>
           <div>Dark Mode</div>
         </div>
       </div>

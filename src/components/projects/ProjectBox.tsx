@@ -27,7 +27,7 @@ const ProjectBox = (props: Props) => {
   };
 
   useEffect(() => {
-    console.log(imgIndex);
+    // console.log(imgIndex);
   }, [imgIndex]);
   var a = 1;
   var b = 2;

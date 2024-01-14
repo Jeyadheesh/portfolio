@@ -188,7 +188,7 @@ const AboutContent = (props: Props) => {
           })}
         </motion.div>
 
-        <div className="borde relative w-[45%] border-white">
+        <div className="borde relative w-[45vw] border-white">
           <BackgroundSvg className="absolute left-0 top-0 h-full w-full" />
 
           {/* Languages */}
@@ -210,12 +210,13 @@ const AboutContent = (props: Props) => {
                     style={{ translateX: "-50%", translateY: "-50%" }}
                     className={`${data.position} absolute rounded-full bg-white object-contain `}
                   >
-                    <div className="relative h-full w-full ">
+                    <div className="relative h-full  w-full ">
                       <Image
                         alt="Image"
                         fill
                         className="rounded-full object-contain"
                         src={data.image}
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       />
                     </div>
                   </motion.div>
