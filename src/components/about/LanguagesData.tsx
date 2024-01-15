@@ -4,7 +4,10 @@ import Express1 from "../../../public/express1.png";
 import Express2 from "../../../public/express2.png";
 import Html1 from "../../../public/html1.png";
 import Js1 from "../../../public/js1.png";
-import Mongodb from "../../../public/mongodb.png";
+import Mongodb1 from "../../../public/mongodb.png";
+import Mongodb2 from "../../../public/mongodb2.svg";
+import Mongodb3 from "../../../public/mongodb3.svg";
+import Mongodb4 from "../../../public/mongodb4.svg";
 import Mysql1 from "../../../public/mysql1.png";
 import Nodejs1 from "../../../public/nodejs1.png";
 import Nodejs2 from "../../../public/nodejs2.png";
@@ -20,10 +23,11 @@ import C from "../../../public/c.png";
 import Python from "../../../public/python.png";
 import Java from "../../../public/java.png";
 
-export const Languages = [
+export const LanguagesShowcase = [
   {
+    name: "Next.js",
     image: NextJs2Svg,
-    position: "top-[50%] left-[50%] h-[16%] w-[16%]  p-2",
+    position: "top-[50%] left-[50%] h-[6rem] w-[6rem] ",
     animatePosition: {
       isXAxis: false,
       initial: "-45%",
@@ -31,67 +35,94 @@ export const Languages = [
     },
   },
   {
+    name: "React",
     image: React1,
-    position: "top-[45%] left-[25%] h-[5rem] w-[5rem]  p-2",
+    position: "top-[45%] left-[25%] h-[6rem] w-[6rem]  ",
   },
   {
+    name: "Node.js",
     image: Nodejs1,
-    position: "top-[55%] left-[80%] h-[6rem] w-[6rem]  p-2",
+    position: "top-[55%] left-[80%] h-[6rem] w-[6rem]  ",
   },
   {
+    name: "CSS",
     image: Css1,
-    position: "top-[15%] left-[85%] h-[15%] w-[15%]  p-0",
+    position: "top-[15%] left-[85%] h-[6rem] w-[6rem]  ",
   },
   {
+    name: "Express.js",
     image: Express2,
-    position: "top-[10%] left-[25%] h-[15%] w-[15%]  p-1",
+    position: "top-[10%] left-[25%] h-[6rem] w-[6rem]  ",
   },
   {
+    name: "HTML",
     image: Html1,
-    position: "top-[5%] left-[55%] h-[15%] w-[15%]  p-0",
+    position: "top-[5%] left-[55%] h-[6rem] w-[6rem]  ",
   },
   {
+    name: "Javascript",
     image: Js1,
-    position: "top-[25%] left-[45%] h-[15%] w-[15%]  p-1",
+    position: "top-[25%] left-[45%] h-[6rem] w-[6rem]  ",
   },
   {
-    image: Mongodb,
-    position: "top-[70%] left-[20%] h-[15%] w-[15%]  p-2",
+    name: "MongoDB",
+    image: Mongodb3,
+    position: "top-[70%] left-[20%] h-[6rem] w-[6rem]  ",
   },
   {
+    name: "MySQL",
     image: Mysql1,
-    position: "top-[75%] left-[50%] h-[15%] w-[15%]  p-1",
+    position: "top-[75%] left-[50%] h-[6rem] w-[6rem]  ",
   },
   {
+    name: "TailwindCSS",
     image: Tailwind1,
-    position: "top-[80%] left-[75%] h-[15%] w-[15%]  p-2",
+    position: "top-[80%] left-[75%] h-[6rem] w-[6rem]  ",
   },
   {
+    name: "C",
     image: C,
-    position: "top-[30%] left-[65%] h-[15%] w-[15%]  p-2",
+    position: "top-[30%] left-[65%] h-[6rem] w-[6rem]  ",
   },
   {
+    name: "Python",
     image: Python,
-    position: "top-[37%] left-[95%] h-[12%] w-[12%]  p-2",
+    position: "top-[37%] left-[95%] h-[5rem] w-[5rem]  ",
   },
   {
+    name: "Java",
     image: Java,
-    position: "top-[90%] left-[35%] h-[12%] w-[12%]  p-2",
+    position: "top-[90%] left-[35%] h-[5rem] w-[5rem]  ",
   },
 ];
 
-export const ProjectLanguages = {
-  html: Html1,
-  css: Css1,
-  javascript: Js1,
-  nextjs: NextJs1,
-  express: Express1,
-  mongodb: Mongodb,
-  mysql: Mysql1,
-  nodejs: Nodejs1,
-  react: React1,
-  tailwind: Tailwind1,
-  c: C,
-  python: Python,
-  java: Java,
+export const TechniquesData = {
+  html: { name: "HTML", image: Html1 },
+  css: { name: "CSS", image: Css1 },
+  javascript: { name: "Javascript", image: Js1 },
+  nextjs: { name: "Next.js", image: NextJs2Svg },
+  express: { name: "Express", image: Express1 },
+  mongodb: { name: "MongoDB", image: Mongodb3 },
+  mysql: { name: "MySQL", image: Mysql1 },
+  nodejs: { name: "Node.js", image: Nodejs1 },
+  react: { name: "React", image: React1 },
+  tailwind: { name: "TailwindCSS", image: Tailwind1 },
+  c: { name: "C", image: C },
+  python: { name: "Python", image: Python },
+  java: { name: "Java", image: Java },
 };
+
+export const skills = [
+  {
+    name: "Frontend",
+    techniques: ["html", "css", "javascript", "tailwind", "react", "nextjs"],
+  },
+  {
+    name: "Backend",
+    techniques: ["nodejs", "express", "mongodb", "mysql"],
+  },
+  {
+    name: "Others",
+    techniques: ["c", "python", "java"],
+  },
+];

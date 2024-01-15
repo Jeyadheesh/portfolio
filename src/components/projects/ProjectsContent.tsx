@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import PhoneBg from "./PhoneBg";
 import ProjectBox from "./ProjectBox";
 import axios from "axios";
-import { decode } from "base64-js";
+// import { decode } from "base64-js";
 
 type Props = {};
 
@@ -15,7 +15,7 @@ const ProjectsContent = (props: Props) => {
   const repo = "EBuddy";
   const path = "README.md";
   const token = process.env.NEXT_PUBLIC_GITHUB_TOKEN;
-  console.log(token);
+  // console.log(token);
 
   const fetchReadme = async () => {
     try {
@@ -35,7 +35,7 @@ const ProjectsContent = (props: Props) => {
 
       // Set the README content in state
       // setReadmeContent(decodedContent);
-    } catch (error) {
+    } catch (error: any) {
       console.log("Error fetching README:", error.message);
     }
   };
