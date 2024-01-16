@@ -104,7 +104,10 @@ const EducationContent = (props: Props) => {
       </div>
       <button
         onClick={() => {
-          setIsDoe((prev) => !prev);
+          setIsDoe(false);
+          setTimeout(() => {
+            setIsDoe(true);
+          }, 400);
         }}
         className="mx-auto w-fit rounded-lg bg-priClr p-2"
       >
@@ -115,7 +118,7 @@ const EducationContent = (props: Props) => {
         initial="hidden"
         whileInView={isDo ? "visible" : "hidden"}
         exit="hidden"
-        // viewport={{ once: true }}
+        viewport={{ once: true }}
         className="borde  mx-auto border-white text-black"
       >
         {aboutData.map((data, i) => {
@@ -127,8 +130,26 @@ const EducationContent = (props: Props) => {
             >
               {/* Box */}
               <motion.div
-                className={` borde flex h-[8re] items-center justify-center gap-7 border-white`}
+                className={`borde group relative flex h-[8re] items-center justify-center gap-7 border-white`}
               >
+                {data.images?.map((d, i) => {
+                  return (
+                    <div
+                      key={i}
+                      className={`${d.position} absolute opacity-50 transition-all duration-150  `}
+                    >
+                      <div className="relative h-16 w-16">
+                        <Image
+                          alt="Image"
+                          fill
+                          src={`${d.name}`}
+                          className=" object-contain"
+                        />
+                      </div>
+                    </div>
+                  );
+                })}
+
                 <motion.div
                   variants={imgItem}
                   transition={{
@@ -157,14 +178,35 @@ const EducationContent = (props: Props) => {
                       delay: i == 0 ? 0.5 : i == 1 ? 1.7 : 2.9,
                     }}
                     // style={{ background: data.bgClr }}
-                    className="borde-[3px] relative w-[50vw] rounded-xl border-white p-3.5  "
+                    className="relative w-[50vw] cursor-pointer rounded-xl border-[3px] border-gray-400 bg-gray-800 p-3.5  "
                   >
-                    <h2 className=" mb-2 text-2xl font-semibold">
-                      {data.institution}
-                    </h2>
-                    <p className="text-3xl font-semibold text-priClr">
-                      {data.course}
-                    </p>
+                    <div className=" mb-2 flex items-center gap-3">
+                      <div className="borde relative h-[2.2rem] w-[2.2rem] border-white  ">
+                        <Image
+                          alt="Image"
+                          src={"/college3.svg"}
+                          className="object-contain"
+                          fill
+                        />
+                      </div>
+                      <h2 className="borde border-white text-3xl font-semibold">
+                        {data.institution}
+                      </h2>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="relative h-[2.2rem] w-[2.2rem]  ">
+                        <Image
+                          alt="Image"
+                          src={"/course1.svg"}
+                          className="object-contain"
+                          fill
+                        />
+                      </div>
+                      <p className="text-3xl font-semibold text-priClr">
+                        {data.course}
+                      </p>
+                    </div>
+                    <div className="triShape absolute -left-8 top-[30%] h-8 w-8 bg-[rgb(156_163_175)]"></div>
 
                     {/* <div className="triShape absolute -left-8 top-[30%] h-8 w-8 bg-white"></div> */}
                   </motion.div>

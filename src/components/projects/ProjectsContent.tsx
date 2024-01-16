@@ -42,7 +42,7 @@ const ProjectsContent = (props: Props) => {
 
   useEffect(() => {
     // Call the fetchReadme function
-    fetchReadme();
+    // fetchReadme();
   }, []);
 
   const decodeBase64 = (content: any) => {

@@ -36,14 +36,20 @@ const AboutContent = (props: Props) => {
           <div className="flex flex-col gap-5">
             {skills.map((skill, i) => {
               return (
-                <div className="w-[80%] rounded-lg border-2 border-gray-700 p-5 shadow shadow-white">
+                <div
+                  key={i}
+                  className="w-[80%] rounded-lg border-2 border-gray-700 p-5 shadow shadow-white"
+                >
                   <h1 className="mb-3 text-center text-3xl font-bold text-priClr">
                     {skill.name}
                   </h1>
                   <div className="flex flex-wrap items-center justify-center gap-3">
                     {skill.techniques.map((data, ii) => {
                       return (
-                        <div className=" bg-orange-10 flex cursor-pointer items-center justify-center gap-3 overflow-hidden rounded-xl border-2 border-purple-600 p-3 transition-all duration-100 hover:scale-[1.06] hover:bg-gradient-to-tr hover:from-violet-500 hover:to-violet-600 hover:shadow-sm hover:shadow-white">
+                        <div
+                          key={ii}
+                          className=" bg-orange-10 flex cursor-pointer items-center justify-center gap-3 overflow-hidden rounded-xl border-2 border-purple-600 p-3 transition-all duration-100 hover:scale-[1.06] hover:bg-gradient-to-tr hover:from-violet-500 hover:to-violet-600 hover:shadow-sm hover:shadow-white"
+                        >
                           <div>
                             <Image
                               alt="Image"

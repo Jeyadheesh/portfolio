@@ -106,13 +106,20 @@ const ProjectBox = (props: Props) => {
               ⚙️
             </motion.h1> */}
           </div>
-          <ul className="flex select-none flex-wrap gap-3">
-            <li className="h-20 w-20 cursor-pointer rounded-lg bg-gray-300 p-2 transition-all duration-100 hover:scale-110 hover:duration-100">
-              <div className="relative mx-auto h-[75%] w-[75%]">
-                <Image alt="Technologies Image" fill className="" src={Tech1} />
+          <ul className="flex select-none flex-wrap items-center  gap-3">
+            <div
+              // key={ii}
+              className=" bg-orange-10 overflow- flex cursor-pointer items-center justify-center gap-2 rounded-xl border-2 border-purple-600 p-2 px-3  transition-all duration-100 hover:scale-[1.06] hover:bg-gradient-to-tr hover:from-violet-500 hover:to-violet-600 hover:shadow-sm hover:shadow-white"
+            >
+              <div className=" ">
+                <Image
+                  alt="Image"
+                  className="h-fit w-10 rounded-full  bg-white object-contain"
+                  src={Tech1}
+                />
               </div>
-              <p className="text-center font-semibold text-black">React</p>
-            </li>
+              <h1 className="font-semibold">{"React"}</h1>
+            </div>
             <li className="h-20 w-20 cursor-pointer rounded-lg bg-gray-300 p-2 transition-all duration-100 hover:scale-110 hover:duration-100">
               <div className="relative mx-auto h-[75%] w-[75%]">
                 <Image alt="Technologies Image" fill className="" src={Tech1} />

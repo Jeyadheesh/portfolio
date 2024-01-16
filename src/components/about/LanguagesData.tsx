@@ -22,6 +22,7 @@ import Tailwind3 from "../../../public/tailwind3.png";
 import C from "../../../public/c.png";
 import Python from "../../../public/python.png";
 import Java from "../../../public/java.png";
+import { ValueOf } from "next/dist/shared/lib/constants";
 
 export const LanguagesShowcase = [
   {
@@ -112,7 +113,14 @@ export const TechniquesData = {
   java: { name: "Java", image: Java },
 };
 
-export const skills = [
+type A = typeof TechniquesData;
+
+type SkillsType = {
+  name: string;
+  techniques: Array<keyof A>;
+}[];
+
+export const skills: SkillsType = [
   {
     name: "Frontend",
     techniques: ["html", "css", "javascript", "tailwind", "react", "nextjs"],

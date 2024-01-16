@@ -9,7 +9,7 @@ import { useTypewriter } from "react-simple-typewriter";
 import SingleLine from "./SingleLine";
 import BackgroundSvg from "./BackgroundSvg copy";
 import NextJs1 from "../../../public/nextjs1.png";
-import { Languages } from "./LanguagesData";
+import { LanguagesShowcase } from "./LanguagesData";
 
 interface Props {}
 
@@ -195,7 +195,7 @@ const AboutContent = (props: Props) => {
           <div className="borde absolute left-0 top-0 z-10 h-full w-full border-red-900">
             <div className="borde relative h-full w-full border-white ">
               {/* 1 */}
-              {Languages.map((data, i) => {
+              {LanguagesShowcase.map((data, i) => {
                 return (
                   <motion.div
                     initial={{ translateY: "-45%" }}
