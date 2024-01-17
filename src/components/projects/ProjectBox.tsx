@@ -1,6 +1,6 @@
 "use client";
-import { AnimatePresence, motion } from "framer-motion";
-import React, { useEffect, useState } from "react";
+import { AnimatePresence, motion, useInView } from "framer-motion";
+import React, { useEffect, useRef, useState } from "react";
 import PhoneBg from "./PhoneBg";
 import Ebuddy1 from "../../../public/ebuddy1.png";
 import Ebuddy2 from "../../../public/ebuddy2.png";
@@ -8,11 +8,23 @@ import Ebuddy3 from "../../../public/ebuddy3.png";
 import Tech1 from "../../../public/React_Logo_SVG.svg";
 import Image from "next/image";
 import { Projects } from "./ProjectsData";
+import { Typewriter, useTypewriter, Cursor } from "react-simple-typewriter";
 
 type Props = {};
 
 const ProjectBox = (props: Props) => {
   const [imgIndex, setImgIndex] = useState([0, 1, 2]);
+  const [ch, setCh] = useState("hai hello");
+  const ref = useRef(null);
+  const [text, helper] = useTypewriter({
+    words: [ch],
+    loop: 1,
+  });
+  const isInView = useInView(ref);
+
+  useEffect(() => {
+    console.log("Element is in view: ", isInView);
+  }, [isInView]);
 
   const showNextImg = () => {
     console.log("in");
@@ -26,6 +38,8 @@ const ProjectBox = (props: Props) => {
     });
   };
 
+  const WriteText = () => {};
+
   useEffect(() => {
     // console.log(imgIndex);
   }, [imgIndex]);
@@ -34,7 +48,7 @@ const ProjectBox = (props: Props) => {
 
   return (
     <div
-      className={` borde  flex   min-h-[80vh] items-center justify-around border-white`}
+      className={` borde  flex   min-h-[100vh] items-center justify-around border-white`}
     >
       {/* <PhoneBg /> */}
       {/* <div className="box !bg-white"></div> */}
@@ -42,20 +56,29 @@ const ProjectBox = (props: Props) => {
         onClick={showNextImg}
         className={`${a == b ? "order-1" : "order-none"}`}
       >
-        <div className="borde  group relative h-[20rem] w-[35rem]  cursor-pointer border-white transition-all duration-100 hover:scale-[1.03] active:scale-100 active:transition-all active:duration-100">
+        <div className="borde  group relative h-[25rem] w-[35rem]  cursor-pointer border-white transition-all duration-100 hover:scale-[1.03] active:scale-100 active:transition-all active:duration-100">
           {/* 1 */}
           {imgIndex.map((data, i) => {
             return (
               <AnimatePresence key={i}>
                 <motion.div
-                  initial={{ rotate: 0 }}
-                  animate={{ rotate: 0 }}
-                  exit={{ opacity: 0 }}
+                  initial={Projects[0].images[i].animate}
+                  whileInView={{
+                    translateY: 0,
+                    translateX: 0,
+                    opacity: 1,
+                    scale: 1,
+                    rotate: 0,
+                  }}
+                  transition={{ type: "spring", duration: 0.7 }}
+                  // exit={{ opacity: 0 }}
                   key={i}
                   style={{ zIndex: Projects[0].images[i].z }}
-                  className={`${Projects[0].images[i].position}  absolute h-full w-full  border-2 border-priClr transition-all  duration-100 group-hover:shadow-md group-hover:shadow-orange-400`}
+                  className={` borde-[2px] absolute  h-full w-full border-priClr  transition-all duration-100  `}
                 >
-                  <div className="relative">
+                  <div
+                    className={`${Projects[0].images[i].position} relative border-[2px] border-priClr transition-all duration-150 group-hover:shadow-md group-hover:shadow-priClr `}
+                  >
                     <Image
                       style={{}}
                       src={Projects[0].images[data].image}
@@ -74,25 +97,33 @@ const ProjectBox = (props: Props) => {
       </div>
 
       {/* Content */}
-      <div className="flex w-5/12 flex-col gap-3">
+      <motion.div
+        initial={{ scale: 0 }}
+        whileInView={{ scale: 1 }}
+        transition={{ type: "spring", duration: 0.7 }}
+        className="flex w-5/12 flex-col gap-3"
+      >
         <motion.h1
-          initial={
-            {
-              // letterSpacing: "2px",
-            }
-          }
-          whileInView={
-            {
-              // letterSpacing: "0px",
-              // transition: {
-              //   duration: 0.5,
-              // },
-            }
-          }
+          ref={ref}
+          // initial={{
+          //   scale: 0,
+          //   opacity: 0,
+          // }}
+          // whileInView={{
+          //   scale: 1,
+          //   opacity: 1,
+          //   // letterSpacing: "0px",
+          //   // transition: {
+          //   //   duration: 0.5,
+          //   // },
+          // }}
           className="w-fit text-5xl font-extrabold text-priClr"
         >
-          Project Name
+          {text ? text : "initial"}
         </motion.h1>
+        <button onClick={WriteText} className="rounded-lg bg-priClr p-2">
+          hai
+        </button>
         <p className="text-lg font-semibold">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt asdf
           adsfjklsadfas jeytiy yi
@@ -106,20 +137,26 @@ const ProjectBox = (props: Props) => {
               ⚙️
             </motion.h1> */}
           </div>
-          <ul className="flex select-none flex-wrap items-center  gap-3">
-            <div
-              // key={ii}
-              className=" bg-orange-10 overflow- flex cursor-pointer items-center justify-center gap-2 rounded-xl border-2 border-purple-600 p-2 px-3  transition-all duration-100 hover:scale-[1.06] hover:bg-gradient-to-tr hover:from-violet-500 hover:to-violet-600 hover:shadow-sm hover:shadow-white"
-            >
-              <div className=" ">
-                <Image
-                  alt="Image"
-                  className="h-fit w-10 rounded-full  bg-white object-contain"
-                  src={Tech1}
-                />
-              </div>
-              <h1 className="font-semibold">{"React"}</h1>
-            </div>
+          <ul className="flex select-none flex-wrap items-center  gap-3 ">
+            {[0, 1, 2].map((data, i) => {
+              return (
+                <motion.div
+                  key={i}
+                  // initial={{ translateY: 100, opacity: 0 }}
+                  // whileInView={{ translateY: 0, opacity: 1 }}
+                  className="bg-orange-10 overflow- flex cursor-pointer items-center justify-center gap-2 rounded-xl border-2 border-violet-600 p-2 px-3  transition-all duration-100 hover:scale-[1.06] hover:bg-gradient-to-tr hover:from-violet-500 hover:to-violet-600 hover:shadow hover:shadow-purple-600"
+                >
+                  <div className=" ">
+                    <Image
+                      alt="Image"
+                      className="h-fit w-10 rounded-full  bg-white object-contain"
+                      src={Tech1}
+                    />
+                  </div>
+                  <h1 className="font-semibold">{"React"}</h1>
+                </motion.div>
+              );
+            })}
             <li className="h-20 w-20 cursor-pointer rounded-lg bg-gray-300 p-2 transition-all duration-100 hover:scale-110 hover:duration-100">
               <div className="relative mx-auto h-[75%] w-[75%]">
                 <Image alt="Technologies Image" fill className="" src={Tech1} />
@@ -128,7 +165,7 @@ const ProjectBox = (props: Props) => {
             </li>
           </ul>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
