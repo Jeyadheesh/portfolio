@@ -7,13 +7,15 @@ import Ebuddy2 from "../../../public/ebuddy2.png";
 import Ebuddy3 from "../../../public/ebuddy3.png";
 import Tech1 from "../../../public/React_Logo_SVG.svg";
 import Image from "next/image";
-import { Projects } from "./ProjectsData";
+import { ProjectsImageTemplate } from "./ProjectsData";
 import { Typewriter, useTypewriter, Cursor } from "react-simple-typewriter";
 
 type Props = {};
 
 const ProjectBox = (props: Props) => {
-  const [imgIndex, setImgIndex] = useState([0, 1, 2]);
+  let len = 3;
+  const imgIn = len == 3 ? [0, 1, 2] : len == 2 ? [1, 2] : [1];
+  const [imgIndex, setImgIndex] = useState(imgIn);
   const [ch, setCh] = useState("hai hello");
   const ref = useRef(null);
   const [text, helper] = useTypewriter({
@@ -22,9 +24,9 @@ const ProjectBox = (props: Props) => {
   });
   const isInView = useInView(ref);
 
-  useEffect(() => {
-    console.log("Element is in view: ", isInView);
-  }, [isInView]);
+  // useEffect(() => {
+  //   console.log("Element is in view: ", isInView);
+  // }, [isInView]);
 
   const showNextImg = () => {
     console.log("in");
@@ -48,12 +50,12 @@ const ProjectBox = (props: Props) => {
 
   return (
     <div
-      className={` borde  flex   min-h-[100vh] items-center justify-around border-white`}
+      className={` borde flex  items-center   justify-around border-white p-5`}
     >
       {/* <PhoneBg /> */}
       {/* <div className="box !bg-white"></div> */}
       <div
-        onClick={showNextImg}
+        // onClick={showNextImg}
         className={`${a == b ? "order-1" : "order-none"}`}
       >
         <div className="borde  group relative h-[25rem] w-[35rem]  cursor-pointer border-white transition-all duration-100 hover:scale-[1.03] active:scale-100 active:transition-all active:duration-100">
@@ -62,26 +64,28 @@ const ProjectBox = (props: Props) => {
             return (
               <AnimatePresence key={i}>
                 <motion.div
-                  initial={Projects[0].images[i].animate}
+                  initial={ProjectsImageTemplate[data].animate}
                   whileInView={{
                     translateY: 0,
                     translateX: 0,
                     opacity: 1,
                     scale: 1,
                     rotate: 0,
+                    ...ProjectsImageTemplate[data].ini,
                   }}
-                  transition={{ type: "spring", duration: 0.7 }}
+                  transition={{ type: "spring", duration: 0.6 }}
                   // exit={{ opacity: 0 }}
                   key={i}
-                  style={{ zIndex: Projects[0].images[i].z }}
+                  style={{ zIndex: ProjectsImageTemplate[data].z }}
                   className={` borde-[2px] absolute  h-full w-full border-priClr  transition-all duration-100  `}
                 >
                   <div
-                    className={`${Projects[0].images[i].position} relative border-[2px] border-priClr transition-all duration-150 group-hover:shadow-md group-hover:shadow-priClr `}
+                    className={`${ProjectsImageTemplate[data].position} relative border-[2px] border-priClr transition-all duration-100 group-hover:shadow-md group-hover:shadow-priClr `}
                   >
                     <Image
                       style={{}}
-                      src={Projects[0].images[data].image}
+                      // Change this for image
+                      src={ProjectsImageTemplate[data].image}
                       className="object-contain"
                       alt="Project Image"
                     />

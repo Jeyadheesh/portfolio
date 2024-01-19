@@ -17,9 +17,24 @@ const ProjectsContent = (props: Props) => {
   const token = process.env.NEXT_PUBLIC_GITHUB_TOKEN;
   // console.log(token);
 
+  const urlRegex = /\((https?:\/\/[^\s)]+)\)/g;
+
+  // Extract URLs using the regular expression
+
+  const fetchGitInfo = async () => {
+    try {
+      const { data: gitInfo } = await axios.get(
+        "https://api.github.com/users/Jeyadheesh/starred",
+      );
+      console.log(gitInfo);
+    } catch (error) {
+      console.log("Error fetching GitInfo:", error.message);
+    }
+  };
+
   const fetchReadme = async () => {
     try {
-      const response = await axios.get(
+      const { data: rawReadME } = await axios.get(
         `https://api.github.com/repos/${owner}/${repo}/readme`,
         {
           headers: {
@@ -31,8 +46,17 @@ const ProjectsContent = (props: Props) => {
 
       // Decode base64-encoded content
       // const decodedContent = atob(response.data.content);
-      console.log(response.data);
+      console.log(rawReadME);
+      const matches: Array<string> = rawReadME.match(urlRegex);
+      // console.log("matches : ", matches);
 
+      // Extract links using the split() method
+      if (matches) {
+        const links = matches.map((match) => match.split("(")[1].split(")")[0]);
+        console.log(links);
+      } else {
+        console.log("No links found in the input text.");
+      }
       // Set the README content in state
       // setReadmeContent(decodedContent);
     } catch (error: any) {
@@ -43,6 +67,7 @@ const ProjectsContent = (props: Props) => {
   useEffect(() => {
     // Call the fetchReadme function
     // fetchReadme();
+    // fetchGitInfo();
   }, []);
 
   const decodeBase64 = (content: any) => {
@@ -59,8 +84,8 @@ const ProjectsContent = (props: Props) => {
       {/* <pre>{readmeContent}</pre> */}
       {/* <div className="box !bg-white"></div> */}
       <div>
-        <h1 className="p-5 text-center text-6xl font-bold">Projects</h1>
-        <div className="flex flex-col gap-10">
+        <h1 className="p-5  text-center text-6xl font-bold">Projects</h1>
+        <div className="mt-[15rem] flex flex-col gap-[10rem]">
           <ProjectBox />
           <ProjectBox />
           <ProjectBox />
