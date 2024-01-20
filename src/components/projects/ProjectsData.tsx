@@ -23,6 +23,7 @@ export const ProjectsImageTemplate = [
     animate: {
       translateY: 0,
       opacity: 1,
+      scale: 1,
       translateX: -300,
     },
     ini: { top: "0", left: "0" },

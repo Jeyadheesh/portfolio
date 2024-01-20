@@ -7,7 +7,7 @@ import Image from "next/image";
 import { aboutData } from "./AboutData";
 import { useTypewriter } from "react-simple-typewriter";
 import SingleLine from "./SingleLine";
-import BackgroundSvg from "./BackgroundSvg copy";
+import BackgroundSvg from "./BackgroundSvg";
 import NextJs1 from "../../../public/nextjs1.png";
 import { LanguagesShowcase } from "./LanguagesData";
 

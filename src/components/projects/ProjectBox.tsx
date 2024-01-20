@@ -73,11 +73,16 @@ const ProjectBox = (props: Props) => {
                     rotate: 0,
                     ...ProjectsImageTemplate[data].ini,
                   }}
-                  transition={{ type: "spring", duration: 0.6 }}
+                  // exit={ProjectsImageTemplate[data].animate}
+                  transition={{
+                    // ease: [0.17, 0.67, 0.83, 0.67],
+                    type: "spring",
+                    duration: 0.8,
+                  }}
                   // exit={{ opacity: 0 }}
                   key={i}
                   style={{ zIndex: ProjectsImageTemplate[data].z }}
-                  className={` borde-[2px] absolute  h-full w-full border-priClr  transition-all duration-100  `}
+                  className={` borde-[2px] absolute  h-full w-full border-priClr  transition-all duration-100`}
                 >
                   <div
                     className={`${ProjectsImageTemplate[data].position} relative border-[2px] border-priClr transition-all duration-100 group-hover:shadow-md group-hover:shadow-priClr `}
