@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --priClr: rgb(217 21 154);
-  --darkBgClr: rgb(17 24 39);
+  --priClr: #d9159a;
+  --darkBgClr: #111827;
 }
 
 * {
@@ -27,6 +27,10 @@
   /* box-shadow: 0px 0px 20px rgb(94 186 176); */
 }
 
+.boxShadow:hover {
+  box-shadow: 0px 0px 10px var(--priClr);
+}
+
 .t {
   color: rgb(126 44 186);
   animation: ani 0.7s linear alternate infinite;
@@ -47,6 +51,8 @@
 /* VS code clr : 282c34 */
 
 ::-webkit-scrollbar {
+  /* overflow-x: hidden; */
+
   width: 0.5rem;
 }
 
@@ -217,4 +223,44 @@
   to {
     transform: rotate(100deg);
   }
+}
+
+/*  */
+
+.contactBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 15px;
+  gap: 15px;
+  background-color: #181717;
+  outline: 3px #181717 solid;
+  outline-offset: -3px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: 400ms;
+}
+
+.contactBtn .text {
+  color: white;
+  font-weight: 700;
+  font-size: 1em;
+  transition: 400ms;
+}
+
+.contactBtn svg path {
+  transition: 400ms;
+}
+
+.contactBtn:hover {
+  background-color: transparent;
+}
+
+.contactBtn:hover .text {
+  color: #181717;
+}
+
+.contactBtn:hover svg path {
+  fill: #181717;
 }

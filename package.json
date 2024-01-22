@@ -9,13 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.12.1",
     "axios": "^1.6.5",
     "base64-js": "^1.5.1",
     "framer-motion": "^10.16.16",
     "next": "14.0.4",
     "react": "^18",
     "react-dom": "^18",
-    "react-simple-typewriter": "^5.0.1"
+    "react-simple-typewriter": "^5.0.1",
+    "react-toastify": "^10.0.4",
+    "sharp": "^0.33.2"
   },
   "devDependencies": {
     "@types/node": "^20",

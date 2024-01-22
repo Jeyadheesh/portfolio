@@ -22,6 +22,8 @@ import Tailwind3 from "../../../public/tailwind3.png";
 import C from "../../../public/c.png";
 import Python from "../../../public/python.png";
 import Java from "../../../public/java.png";
+import ScoketIo from "../../../public/socketio.svg";
+import JWT from "../../../public/jwt1.svg";
 import { ValueOf } from "next/dist/shared/lib/constants";
 
 export const LanguagesShowcase = [
@@ -102,15 +104,17 @@ export const TechniquesData = {
   css: { name: "CSS", image: Css1 },
   javascript: { name: "Javascript", image: Js1 },
   nextjs: { name: "Next.js", image: NextJs2Svg },
-  express: { name: "Express", image: Express1 },
+  expressjs: { name: "Express", image: Express2 },
   mongodb: { name: "MongoDB", image: Mongodb3 },
   mysql: { name: "MySQL", image: Mysql1 },
   nodejs: { name: "Node.js", image: Nodejs1 },
   react: { name: "React", image: React1 },
-  tailwind: { name: "TailwindCSS", image: Tailwind1 },
+  tailwindcss: { name: "TailwindCSS", image: Tailwind1 },
   c: { name: "C", image: C },
   python: { name: "Python", image: Python },
   java: { name: "Java", image: Java },
+  socketio: { name: "Java", image: ScoketIo },
+  jwt: { name: "JWT", image: JWT },
 };
 
 type A = typeof TechniquesData;
@@ -123,14 +127,14 @@ type SkillsType = {
 export const skills: SkillsType = [
   {
     name: "Frontend",
-    techniques: ["html", "css", "javascript", "tailwind", "react", "nextjs"],
+    techniques: ["html", "css", "javascript", "tailwindcss", "react", "nextjs"],
   },
   {
     name: "Backend",
-    techniques: ["nodejs", "express", "mongodb", "mysql"],
+    techniques: ["nodejs", "expressjs", "mongodb", "mysql"],
   },
   {
-    name: "Others",
+    name: "Programming Languages",
     techniques: ["c", "python", "java"],
   },
 ];

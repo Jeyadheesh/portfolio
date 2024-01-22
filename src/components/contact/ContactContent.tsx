@@ -1,14 +1,145 @@
+"use client";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Github from "/githubSvg.svg";
+import { links } from "./ContactData";
+import Link from "next/link";
+import emailjs from "@emailjs/browser";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { Variants, motion } from "framer-motion";
 
 type Props = {};
 
 const ContactContent = (props: Props) => {
+  var templateParams = {
+    from_name: "",
+    email: "",
+    message: "",
+  };
+  const [mailparams, setMailparams] = useState(templateParams);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const onInputChange = (keyy: string, val: string) => {
+    setMailparams((prev) => {
+      return { ...prev, [keyy]: val };
+    });
+  };
+
+  const errorNotify = (msg: string) => {
+    toast.error(msg, {
+      position: "top-center",
+      autoClose: 2000,
+      // theme: "dark",
+    });
+  };
+  const successNotify = (msg: string) => {
+    toast.success(msg, {
+      position: "top-center",
+      autoClose: 2000,
+      // theme: "dark",
+    });
+  };
+
+  const sendEmail = async () => {
+    try {
+      setIsLoading(true);
+      let iserror = false;
+      const isEmpty = Object.values(mailparams).forEach((m) => {
+        if (m === "" || /^\s*$/.test(m) == true) {
+          iserror = true;
+        }
+      });
+
+      if (iserror) {
+        // console.log(iserror);
+        errorNotify("Enter Valid Inputs 🐻‍❄️");
+        setIsLoading(false);
+        return;
+      }
+
+      const response = await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICEID as string,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATEID as string,
+        templateParams,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLICID,
+      );
+      // console.log(response.status);
+      if (response.status == 200) {
+        successNotify("Email Sent 👍");
+        setIsLoading(false);
+      } else {
+        errorNotify("Something wrong 😥. Try Later ");
+        setIsLoading(false);
+      }
+    } catch (error) {
+      console.log(error.message);
+      setIsLoading(false);
+    }
+  };
+
+  // useEffect(() => {
+  //   console.log(mailparams);
+  // }, [mailparams]);
+
+  const arrow: Variants = {
+    initial: { rotate: -45 },
+    animate: { rotate: 0, translateX: "100%" },
+  };
+
+  const move = {
+    initial: { translateX: 0 },
+    animate: { translateX: 100 },
+  };
+
   return (
-    <div>
+    <div className="">
       <div>
         <h1 className="p-5 text-center text-5xl font-bold">Contact</h1>
+      </div>
+
+      <ToastContainer />
+
+      <div className="mb-5 mt-3 flex justify-evenly">
+        {links.map((data, i) => {
+          return (
+            <Link
+              href={data.linkUrl}
+              target="_blank"
+              key={i}
+              className="group relative flex h-14 w-14 justify-center rounded-full transition-all"
+            >
+              <Image
+                alt={data.name}
+                fill
+                src={data.image}
+                className="bg-whit  cursor-pointer   object-contain transition-all duration-100 hover:scale-110 hover:transition-all hover:duration-100"
+              />
+              <span className="absolute font-medium text-white opacity-0 duration-500 group-hover:-translate-y-5 group-hover:opacity-100">
+                {data.name}
+              </span>
+            </Link>
+          );
+        })}
+
+        {/* <div className="flex gap-3">
+          <div className="relative h-10 w-10">
+            <Image alt="Github" fill className="" src="/location1.svg" />
+          </div>
+          <h1 className="my-auto text-lg font-semibold">
+            Madurai,TamilNadu - India
+          </h1>
+        </div>
+        <div className="flex gap-3">
+          <Image
+            alt="Github"
+            className="text-white "
+            width={30}
+            height={30}
+            src="/email1.svg"
+          />
+          <h1>Madurai, &nbsp; TamilNadu - India</h1>
+        </div> */}
       </div>
 
       <div className="flex gap-5">
@@ -22,7 +153,6 @@ const ContactContent = (props: Props) => {
             />
           </div>
 
-         
           <div className="mx-auto flex w-fit gap-3">
             <div className="flex gap-3">
               <Image alt="Github" width={30} height={30} src="/githubSvg.svg" />
@@ -41,7 +171,7 @@ const ContactContent = (props: Props) => {
         </div> */}
 
         <div className="borde  m-auto h-auto  w-[50vw] border-white">
-          <div className="hover:shado relative rounded-xl border-4 border-priClr p-7 hover:shadow-priClr">
+          <div className="boxShadow relative rounded-xl border-4 border-priClr bg-gradient-to-br  p-7 transition-all duration-150 hover:shadow-priClr">
             {/* after:absolute after:-top-1 after:left-0  after:h-[calc(100%+16px)] after:w-[calc(100%-10px)]  after:bg-white after:content-['']  */}
 
             {/*  */}
@@ -88,6 +218,8 @@ const ContactContent = (props: Props) => {
                     </div> */}
                   </div>
                   <input
+                    value={mailparams.from_name}
+                    onChange={(e) => onInputChange("from_name", e.target.value)}
                     type="text"
                     id="name"
                     className="block w-full rounded-lg border-2  border-gray-400 bg-gray-800 p-2.5 ps-10 text-white placeholder-gray-400 outline-none focus:border-2 focus:border-priClr focus:shadow focus:shadow-priClr focus:ring-blue-500"
@@ -119,6 +251,8 @@ const ContactContent = (props: Props) => {
                   <input
                     type="email"
                     id="email"
+                    value={mailparams.email}
+                    onChange={(e) => onInputChange("email", e.target.value)}
                     className="block w-full rounded-lg border-2  border-gray-400 bg-gray-800 p-2.5 ps-10 text-white placeholder-gray-400 outline-none focus:border-2 focus:border-priClr focus:shadow focus:shadow-priClr focus:ring-blue-500 "
                     placeholder="example@gmail.com"
                   />
@@ -135,25 +269,39 @@ const ContactContent = (props: Props) => {
                 <textarea
                   id="message"
                   rows={4}
+                  value={mailparams.message}
+                  onChange={(e) => onInputChange("message", e.target.value)}
                   className="block w-full resize-none rounded-lg  border-2 border-gray-400 bg-gray-800 p-2.5 text-white placeholder-gray-400 outline-none focus:border-2 focus:border-priClr focus:shadow focus:shadow-priClr focus:ring-priClr "
                   placeholder="Message..."
                 ></textarea>
               </div>
 
-              <button className=" mx-auto w-fit rounded-lg border border-white p-3 px-7">
-                Send
-              </button>
+              {!isLoading ? (
+                <motion.button
+                  initial="initial"
+                  animate="initial"
+                  whileHover="animate"
+                  // type="submit"
+                  onClick={sendEmail}
+                  className="mx-auto flex w-32 items-center justify-center  gap-2 overflow-hidden rounded-lg bg-priClr py-3 transition-all duration-150 hover:scale-105 hover:shadow hover:shadow-priClr active:scale-100"
+                >
+                  <motion.div variants={arrow} className="relative h-7 w-7">
+                    <Image alt="send" src={"/send1.svg"} fill className="" />
+                  </motion.div>
+                  <motion.div variants={move} className="font-semibold ">
+                    Send
+                  </motion.div>
+                </motion.button>
+              ) : (
+                <button
+                  // type="submit"
+                  disabled
+                  className="mx-auto w-fit rounded-lg border border-white p-3 px-7"
+                >
+                  <div className="h-5 w-5 animate-spin rounded-full border-2 border-b-2 border-white border-b-transparent"></div>
+                </button>
+              )}
             </div>
-          </div>
-        </div>
-        <div className="flex flex-col gap-3">
-          <div className="flex gap-3">
-            <Image alt="Github" width={30} height={30} src="/githubSvg.svg" />
-            <h1>Github</h1>
-          </div>
-          <div className="flex gap-3">
-            <Image alt="Github" width={30} height={30} src="/linkedinSvg.svg" />
-            <h1>LinkedIn</h1>
           </div>
         </div>
       </div>

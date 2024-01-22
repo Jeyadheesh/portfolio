@@ -26,12 +26,12 @@ export default function Home() {
       </div>
 
       {/* Projects */}
-      <div className="min-h-screen">
+      <div className="min-h-screen overflow-hidden">
         <ProjectsContent />
       </div>
 
       {/* Contact */}
-      <div className="flex min-h-screen items-center justify-center">
+      <div className="items- flex min-h-screen justify-center ">
         <ContactContent />
       </div>
     </div>
