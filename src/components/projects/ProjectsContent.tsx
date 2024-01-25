@@ -4,13 +4,15 @@ import React, { useEffect, useState } from "react";
 import PhoneBg from "./PhoneBg";
 import ProjectBox from "./ProjectBox";
 import axios from "axios";
+import Spinner from "../elements/Spinner";
 // import { decode } from "base64-js";
 
 type Props = {};
 
 const ProjectsContent = (props: Props) => {
-  const [readmeContent, setReadmeContent] = useState("");
+  // const [readmeContent, setReadmeContent] = useState("");
   const [projectsData, setProjectsData] = useState<GitInfoProp[] | []>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const owner = "Jeyadheesh";
   const repo = "EBuddy";
@@ -19,27 +21,6 @@ const ProjectsContent = (props: Props) => {
   // console.log(token);
 
   const urlRegex = /\((https?:\/\/[^\s)]+)\)/g;
-
-  const fetchGitInfo = async () => {
-    console.log("in");
-
-    try {
-      const { data: gitInfo } = await axios.get<Array<GitInfoProp>>(
-        "https://api.github.com/users/Jeyadheesh/starred",
-      );
-      // console.log(gitInfo);
-      let finalInfo = gitInfo;
-      finalInfo.forEach(async (data, i) => {
-        const readMeData = await fetchReadme(data.name);
-        // console.log(readMeData);
-        finalInfo[i] = { ...data, readmedata: readMeData };
-      });
-      // console.log(finalInfo);
-      setProjectsData(finalInfo);
-    } catch (error) {
-      console.log("Error fetching GitInfo:", error.message);
-    }
-  };
 
   const fetchReadme = async (repo: string) => {
     try {
@@ -71,14 +52,35 @@ const ProjectsContent = (props: Props) => {
     }
   };
 
+  const fetchGitInfo = async () => {
+    setIsLoading(true);
+    console.log("fetchGitInfo Called");
+
+    try {
+      const { data: gitInfo } = await axios.get<Array<GitInfoProp>>(
+        "https://api.github.com/users/Jeyadheesh/starred",
+      );
+      console.log(gitInfo);
+      let finalInfo = gitInfo;
+
+      for (let index = 0; index < gitInfo.length; index++) {
+        const element = await fetchReadme(gitInfo[index].name);
+        finalInfo[index] = { ...gitInfo[index], readmedata: element };
+      }
+      // console.log(finalInfo);
+      setProjectsData(finalInfo);
+      setIsLoading(false);
+    } catch (error) {
+      console.log("Error fetching GitInfo:", error.message);
+    }
+  };
+
   useEffect(() => {
-    // Call the fetchReadme function
-    // fetchReadme();
     fetchGitInfo();
   }, []);
 
   useEffect(() => {
-    console.log("projectsData : ", projectsData);
+    console.log("projectsData : ", projectsData.length);
   }, [projectsData]);
 
   return (
@@ -89,9 +91,13 @@ const ProjectsContent = (props: Props) => {
       <div>
         <h1 className="p-5  text-center text-6xl font-bold">Projects</h1>
         {/* <h1>{projectsData.length}</h1> */}
-        <div className="mt-[15rem] flex flex-col gap-[10rem] ">
-          {projectsData.length != 0 &&
-            projectsData.map((data, i) => {
+        {isLoading ? (
+          <div className="mt-10">
+            <Spinner />
+          </div>
+        ) : (
+          <div className="mt-[15rem] flex flex-col gap-[10rem] ">
+            {projectsData?.map((data, i) => {
               return (
                 <div key={i}>
                   <ProjectBox
@@ -102,7 +108,8 @@ const ProjectsContent = (props: Props) => {
                 </div>
               );
             })}
-        </div>
+          </div>
+        )}
       </div>
     </div>
   );

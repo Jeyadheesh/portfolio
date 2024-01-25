@@ -104,7 +104,7 @@ export const TechniquesData = {
   css: { name: "CSS", image: Css1 },
   javascript: { name: "Javascript", image: Js1 },
   nextjs: { name: "Next.js", image: NextJs2Svg },
-  expressjs: { name: "Express", image: Express2 },
+  expressjs: { name: "Express.js", image: Express2 },
   mongodb: { name: "MongoDB", image: Mongodb3 },
   mysql: { name: "MySQL", image: Mysql1 },
   nodejs: { name: "Node.js", image: Nodejs1 },

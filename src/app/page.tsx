@@ -7,6 +7,8 @@ import ContactContent from "@/components/contact/ContactContent";
 import EducationContent from "@/components/education/EducationContent";
 
 export default function Home() {
+  // console.log();
+
   return (
     <div className="bg-gray-900 text-slate-50">
       {/* Home */}

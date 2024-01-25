@@ -8,6 +8,7 @@ import emailjs from "@emailjs/browser";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Variants, motion } from "framer-motion";
+import TooltipLink from "../elements/TooltipLink";
 
 type Props = {};
 
@@ -74,6 +75,7 @@ const ContactContent = (props: Props) => {
       }
     } catch (error) {
       console.log(error.message);
+      errorNotify("Something went wrong!😶");
       setIsLoading(false);
     }
   };
@@ -103,22 +105,13 @@ const ContactContent = (props: Props) => {
       <div className="mb-5 mt-3 flex justify-evenly">
         {links.map((data, i) => {
           return (
-            <Link
-              href={data.linkUrl}
-              target="_blank"
+            <TooltipLink
               key={i}
-              className="group relative flex h-14 w-14 justify-center rounded-full transition-all"
-            >
-              <Image
-                alt={data.name}
-                fill
-                src={data.image}
-                className="bg-whit  cursor-pointer   object-contain transition-all duration-100 hover:scale-110 hover:transition-all hover:duration-100"
-              />
-              <span className="absolute font-medium text-white opacity-0 duration-500 group-hover:-translate-y-5 group-hover:opacity-100">
-                {data.name}
-              </span>
-            </Link>
+              image={data.image}
+              link={data.linkUrl}
+              name={data.name}
+              size="h-14 w-14 "
+            />
           );
         })}
 
@@ -222,7 +215,7 @@ const ContactContent = (props: Props) => {
                     onChange={(e) => onInputChange("from_name", e.target.value)}
                     type="text"
                     id="name"
-                    className="block w-full rounded-lg border-2  border-gray-400 bg-gray-800 p-2.5 ps-10 text-white placeholder-gray-400 outline-none focus:border-2 focus:border-priClr focus:shadow focus:shadow-priClr focus:ring-blue-500"
+                    className="block w-full rounded-lg border-2  border-gray-400 bg-gray-800 p-2.5 ps-10 text-white placeholder-gray-400 outline-none focus:border-2 focus:border-priClr focus:shadow-md focus:shadow-priClr focus:ring-blue-500"
                     placeholder="name"
                   />
                 </div>
@@ -253,7 +246,7 @@ const ContactContent = (props: Props) => {
                     id="email"
                     value={mailparams.email}
                     onChange={(e) => onInputChange("email", e.target.value)}
-                    className="block w-full rounded-lg border-2  border-gray-400 bg-gray-800 p-2.5 ps-10 text-white placeholder-gray-400 outline-none focus:border-2 focus:border-priClr focus:shadow focus:shadow-priClr focus:ring-blue-500 "
+                    className="block w-full rounded-lg border-2  border-gray-400 bg-gray-800 p-2.5 ps-10 text-white placeholder-gray-400 outline-none focus:border-2 focus:border-priClr focus:shadow-md focus:shadow-priClr focus:ring-blue-500 "
                     placeholder="example@gmail.com"
                   />
                 </div>
@@ -271,7 +264,7 @@ const ContactContent = (props: Props) => {
                   rows={4}
                   value={mailparams.message}
                   onChange={(e) => onInputChange("message", e.target.value)}
-                  className="block w-full resize-none rounded-lg  border-2 border-gray-400 bg-gray-800 p-2.5 text-white placeholder-gray-400 outline-none focus:border-2 focus:border-priClr focus:shadow focus:shadow-priClr focus:ring-priClr "
+                  className="block w-full resize-none rounded-lg  border-2 border-gray-400 bg-gray-800 p-2.5 text-white placeholder-gray-400 outline-none focus:border-2 focus:border-priClr focus:shadow-md focus:shadow-priClr focus:ring-priClr "
                   placeholder="Message..."
                 ></textarea>
               </div>
