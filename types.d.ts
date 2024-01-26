@@ -17,12 +17,8 @@ interface ProjectsImageTemplateProp {
   image: StaticImageData;
   lposition: Variants;
   rposition: Variants;
-  rinitial: Variants;
-  varient1: {
-    linitial1: Variants;
-    linitial2: Variants;
-  };
-  lanimate: Variants;
-  ranimate: Variants;
+  variant1: Variant;
   z: number;
 }
+
+type Pages = "home" | "education" | "skills" | "projects" | "contact";

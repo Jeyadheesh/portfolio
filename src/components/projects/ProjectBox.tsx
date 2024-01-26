@@ -1,6 +1,7 @@
 "use client";
 import {
   AnimatePresence,
+  Variants,
   motion,
   useAnimate,
   useInView,
@@ -12,7 +13,7 @@ import Ebuddy1 from "../../../public/ebuddy1.png";
 import Ebuddy2 from "../../../public/ebuddy2.png";
 import Ebuddy3 from "../../../public/ebuddy3.png";
 import Tech1 from "../../../public/React_Logo_SVG.svg";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { ProjectsImageTemplate } from "./ProjectsData";
 import { Typewriter, useTypewriter, Cursor } from "react-simple-typewriter";
 import { TechniquesData } from "../about/LanguagesData";
@@ -60,12 +61,12 @@ const ProjectBox = ({ keyy, isLeft, projectData }: Props) => {
 
   const WriteText = () => {};
 
-  const getIniAnimation = (data: number) => {
-    let ans = isLeft
-      ? ProjectsImageTemplate[data].lanimate
-      : ProjectsImageTemplate[data].ranimate;
-    return ans;
-  };
+  // const getIniAnimation = (data: number) => {
+  //   let ans = isLeft
+  //     ? ProjectsImageTemplate[data].lanimate
+  //     : ProjectsImageTemplate[data].ranimate;
+  //   return ans;
+  // };
 
   useEffect(() => {
     // console.log(imgIndex);
@@ -81,6 +82,18 @@ const ProjectBox = ({ keyy, isLeft, projectData }: Props) => {
   //   check();
   // }, [isInView]);
 
+  const variant1: Variants = {
+    initial: {
+      translateX: -400,
+    },
+    animate: {
+      translateX: 0,
+    },
+    text: {
+      rotate: 5,
+    },
+  };
+
   return (
     <div
       key={keyy}
@@ -93,62 +106,69 @@ const ProjectBox = ({ keyy, isLeft, projectData }: Props) => {
         className={`${isLeft ? "md:order-none" : "md:order-1"}`}
       >
         <motion.div
-          initial="linitial1"
-          whileInView={"linitial2"}
+          // variants={variant1}
+          initial={isLeft ? "linitial" : "rinitial"}
+          whileInView={isLeft ? "lanimate" : "ranimate"}
           // ref={scope}
-          className="borde  group relative min-h-[20rem] w-[35rem]  cursor-pointer border-white transition-all duration-100 hover:scale-[1.03] active:scale-100 active:transition-all active:duration-100"
+          className="borde-2 group relative min-h-[20rem] w-[35rem]  cursor-pointer border-white transition-transform duration-100 hover:scale-[1.03] active:scale-100"
         >
           {/* 1 */}
           {imgIndex.map((data, i) => {
             return (
-              // <AnimatePresence key={i}>
-              <motion.div
-                variants={
-                  isLeft
-                    ? ProjectsImageTemplate[data].varient1
-                    : ProjectsImageTemplate[data].varient1
-                }
-                // whileInView={
-                //   // translateX: 0,
-                //   isLeft
-                //     ? ProjectsImageTemplate[data].lanimate
-                //     : ProjectsImageTemplate[data].ranimate
-                // }
-
-                transition={{
-                  // ease: [0.17, 0.67, 0.83, 0.67],
-                  type: "spring",
-                  // duration: 1,
-                }}
-                exit={
-                  isLeft
-                    ? ProjectsImageTemplate[data].linitial
-                    : ProjectsImageTemplate[data].rinitial
-                }
-                key={i}
-                style={{ zIndex: ProjectsImageTemplate[data].z }}
-                className={`borde-[2px] absolute h-full w-full list-none  border-white  transition-all duration-200`}
-              >
-                <div
-                  className={`${
+              <AnimatePresence key={i} mode="wait">
+                <motion.div
+                  // variants={ProjectsImageTemplate[data].variant1}
+                  initial={
                     isLeft
-                      ? ProjectsImageTemplate[data].lposition
-                      : ProjectsImageTemplate[data].rposition
-                  } relative h-full w-full overflow-hidden border-[3px] border-priClr transition-all duration-200 group-hover:shadow-md group-hover:shadow-priClr`}
+                      ? ProjectsImageTemplate[data].variant1.linitial
+                      : ProjectsImageTemplate[data].variant1.rinitial
+                  }
+                  whileInView={
+                    // translateX: 0,
+                    isLeft
+                      ? ProjectsImageTemplate[data].variant1.lanimate
+                      : ProjectsImageTemplate[data].variant1.ranimate
+                  }
+                  // whileHover={}
+                  // exit={
+                  //   isLeft
+                  //     ? ProjectsImageTemplate[data].lanimate
+                  //     : ProjectsImageTemplate[data].ranimate
+                  // }
+                  transition={{
+                    // ease: [0.17, 0.67, 0.83, 0.67],
+                    type: "spring",
+                    duration: 0.8,
+                  }}
+                  exit={
+                    isLeft
+                      ? ProjectsImageTemplate[data].variant1.linitial
+                      : ProjectsImageTemplate[data].variant1.rinitial
+                  }
+                  key={i}
+                  style={{ zIndex: ProjectsImageTemplate[data].z }}
+                  className={`borde-[2px] absolute h-full w-full list-none  border-white `}
                 >
-                  <Image
-                    style={{}}
-                    fill
-                    // Change this for image
-                    // src={projectData.readmedata[i]}
-                    src={projectData.readmedata[i]}
-                    className="object-contain "
-                    alt="Project Image"
-                  />
-                </div>
-                {/* <div>{data}</div> */}
-              </motion.div>
-              // </AnimatePresence>
+                  <div
+                    className={`${
+                      isLeft
+                        ? ProjectsImageTemplate[data].lposition
+                        : ProjectsImageTemplate[data].rposition
+                    } relative h-full w-full overflow-hidden border-[3px] border-priClr transition-transform duration-150 group-hover:shadow-md group-hover:shadow-priClr`}
+                  >
+                    <Image
+                      style={{}}
+                      fill
+                      // Change this for image
+                      // src={projectData.readmedata[i]}
+                      src={projectData?.readmedata[i]}
+                      className="object-contain "
+                      alt="Project Image"
+                    />
+                  </div>
+                  {/* <div>{data}</div> */}
+                </motion.div>
+              </AnimatePresence>
             );
           })}
 
@@ -158,9 +178,13 @@ const ProjectBox = ({ keyy, isLeft, projectData }: Props) => {
 
       {/* Content */}
       <motion.div
-        // initial={{ scale: 0 }}
-        // whileInView={{ scale: 1 }}
-        // transition={{ type: "spring", duration: 0.7 }}
+        initial={
+          isLeft
+            ? { scale: 0, translateX: 360 }
+            : { scale: 0, translateX: -360 }
+        }
+        whileInView={{ scale: 1, translateX: 0 }}
+        transition={{ type: "spring", duration: 0.7 }}
         className="flex w-5/12 flex-col gap-3"
       >
         <div className="flex items-center gap-3">
@@ -209,13 +233,13 @@ const ProjectBox = ({ keyy, isLeft, projectData }: Props) => {
             </motion.h1> */}
           </div>
           <ul className="flex select-none flex-wrap items-center  gap-3 ">
-            {projectData?.topics?.map((data, i: number) => {
+            {projectData.topics.map((data, i: number) => {
               return (
                 <motion.div
                   key={i}
                   // initial={{ translateY: 100, opacity: 0 }}
                   // whileInView={{ translateY: 0, opacity: 1 }}
-                  className="overflow- curso-pointer hover:scal-[1.06] bg-gradien-to-tr flex h-full cursor-pointer items-center justify-center gap-2 rounded-xl border-2 border-violet-600  bg-violet-500 from-violet-500 to-violet-600 p-2 px-3 transition-all duration-100 hover:shadow hover:shadow-purple-600  "
+                  className="overflow- curso-pointer hover:scal-[1.06] bg-gradien-to-tr flex h-full cursor-pointer items-center justify-center gap-2 rounded-xl border-2 border-violet-600  bg-violet-500 from-violet-500 to-violet-600 p-2 px-3 transition-transform duration-100 hover:shadow hover:shadow-purple-600  "
                 >
                   {TechniquesData[data] && (
                     <div className="">

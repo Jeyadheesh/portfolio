@@ -160,6 +160,14 @@
   animation: spi 2s linear infinite;
 }
 
+.hovered {
+  scale: 1.1;
+}
+
+.hoveredCard {
+  transform: rotateY(180deg);
+}
+
 .card {
   perspective: 1000px;
 }

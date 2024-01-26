@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { aboutData } from "../about/AboutData";
 import Image from "next/image";
 import SingleLine from "../about/SingleLine";
+import TooltipLink from "../elements/TooltipLink";
 
 type Props = {};
 
@@ -64,6 +65,7 @@ const EducationContent = (props: Props) => {
       // },
     },
   };
+
   const itemBox: Variants = {
     hidden: {
       x: 300,
@@ -96,23 +98,41 @@ const EducationContent = (props: Props) => {
       },
     },
   };
+
+  const doAnimation = () => {
+    setIsDoe(false);
+    setTimeout(() => {
+      setIsDoe(true);
+    }, 400);
+  };
+
   return (
-    <div>
+    <div className="overflow-hidden">
       {/* Title */}
-      <div className="borde w-full border-white">
-        <h1 className=" p-5 text-center text-5xl font-bold">Education</h1>
+      <div className="flex items-center justify-center gap-0 ">
+        <div className="borde border-white">
+          <h1 className=" p-5 text-center text-5xl font-bold">Education</h1>
+        </div>
+        {/* <button
+          onClick={() => {
+            setIsDoe(false);
+            setTimeout(() => {
+              setIsDoe(true);
+            }, 400);
+          }}
+          className=" w-fit rounded-lg bg-priClr p-2"
+        >
+          do
+        </button> */}
+        <div>
+          <TooltipLink
+            image="/animation1.svg"
+            onClickFun={doAnimation}
+            name="Animate"
+            size="h-9 w-9"
+          />
+        </div>
       </div>
-      <button
-        onClick={() => {
-          setIsDoe(false);
-          setTimeout(() => {
-            setIsDoe(true);
-          }, 400);
-        }}
-        className="mx-auto w-fit rounded-lg bg-priClr p-2"
-      >
-        do
-      </button>
       <motion.div
         variants={container}
         initial="hidden"
@@ -130,13 +150,13 @@ const EducationContent = (props: Props) => {
             >
               {/* Box */}
               <motion.div
-                className={`borde group relative flex h-[8re] items-center justify-center gap-7 border-white`}
+                className={`borde group  relative flex h-[8re] items-center justify-center gap-7 border-white`}
               >
                 {data.images?.map((d, i) => {
                   return (
                     <div
                       key={i}
-                      className={`${d.position} absolute opacity-50 transition-all duration-150  `}
+                      className={`${d.position} absolute opacity-50 transition-transform duration-200  `}
                     >
                       <div className="relative h-16 w-16">
                         <Image

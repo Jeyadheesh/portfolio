@@ -1,5 +1,11 @@
 "use client";
-import { AnimatePresence, Variants, delay, motion } from "framer-motion";
+import {
+  AnimatePresence,
+  VariantLabels,
+  Variants,
+  delay,
+  motion,
+} from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
 import DashedLine from "./DashedLine";
 import Image from "next/image";
@@ -14,7 +20,16 @@ import { LanguagesShowcase, TechniquesData, skills } from "./LanguagesData";
 interface Props {}
 
 const AboutContent = (props: Props) => {
+  const [hoverElement, setHoverElement] = useState("");
   const divRef = useRef<HTMLDivElement>(null);
+
+  const onHoverEffect = (e: Event) => {
+    // console.log((e.target as HTMLElement)?.children[1]?.textContent);
+
+    setHoverElement(
+      (e.target as HTMLElement)?.children[1]?.textContent as string,
+    );
+  };
 
   useEffect(() => {
     // setInterval(() => {
@@ -24,7 +39,7 @@ const AboutContent = (props: Props) => {
   }, []);
 
   return (
-    <div id="about" className="borde w-full overflow-hidden  border-white">
+    <div className="borde w-full overflow-hidden  border-white">
       {/* Title */}
       <div className="borde w-full border-white">
         <h1 className=" p-5 text-center text-5xl font-bold">Skills</h1>
@@ -32,13 +47,13 @@ const AboutContent = (props: Props) => {
 
       <div className="flex justify-center">
         {/* Left */}
-        <div className="w-[45vw]">
+        <div className="w-[50vw]">
           <div className="flex flex-col gap-5">
             {skills.map((skill, i) => {
               return (
                 <div
                   key={i}
-                  className="w-[80%] rounded-lg border-2 border-gray-700 p-5 shadow shadow-white"
+                  className="w-[80%] rounded-lg border-2 border-gray-700 px-2 py-5 shadow shadow-white"
                 >
                   <h1 className="mb-3 text-center text-3xl font-bold text-priClr">
                     {skill.name}
@@ -46,21 +61,23 @@ const AboutContent = (props: Props) => {
                   <div className="flex flex-wrap items-center justify-center gap-3">
                     {skill.techniques.map((data, ii) => {
                       return (
-                        <div
+                        <motion.div
+                          onHoverStart={(e) => onHoverEffect(e)}
+                          onHoverEnd={(e) => setHoverElement("")}
                           key={ii}
-                          className=" bg-orange-10 flex cursor-pointer items-center justify-center gap-3 overflow-hidden rounded-xl border-2 border-purple-600 p-3 transition-all duration-100 hover:scale-[1.06] hover:bg-gradient-to-tr hover:from-violet-500 hover:to-violet-600 hover:shadow-sm hover:shadow-white"
+                          className=" bg-orange-10 flex cursor-pointer items-center justify-center gap-3 overflow-hidden rounded-xl border-2 border-purple-600 px-3 py-3 transition-all duration-100 hover:scale-[1.06] hover:bg-gradient-to-tr hover:from-violet-500 hover:to-violet-600 hover:shadow-sm hover:shadow-white"
                         >
-                          <div>
+                          <div className="">
                             <Image
                               alt="Image"
-                              className="h-10 w-10  rounded-full bg-white object-contain"
+                              className="h-10 w-10 rounded-full bg-white  object-contain p-[0.11rem]"
                               src={TechniquesData[data].image}
                             />
                           </div>
                           <h1 className="text- font-semibold">
                             {TechniquesData[data].name}
                           </h1>
-                        </div>
+                        </motion.div>
                       );
                     })}
                   </div>
@@ -70,8 +87,8 @@ const AboutContent = (props: Props) => {
           </div>
         </div>
 
-        <div className=" borde relative h-screen w-[45vw] border-white">
-          <BackgroundSvg className="borde absolute left-0 top-0 h-full w-full border-priClr" />
+        <div className=" borde relative h-[45vw] w-[45vw] border-white">
+          <BackgroundSvg className="borde h-full w-full rounded-full border-priClr" />
 
           {/* Languages */}
           <div
@@ -93,9 +110,15 @@ const AboutContent = (props: Props) => {
                     // }}
                     key={i}
                     style={{ translateX: "-50%", translateY: "-50%" }}
-                    className={`${data.position} card absolute cursor-pointer rounded-full border-2 border-white bg-white transition-all duration-150 hover:scale-110 hover:transition-all hover:duration-150`}
+                    className={`${data.position} ${
+                      data.name == hoverElement && "hovered"
+                    } card borde-2 absolute cursor-pointer rounded-full border-white bg-white p-0.5 transition-all duration-150 hover:scale-110 hover:transition-all hover:duration-150`}
                   >
-                    <div className="card-inner">
+                    <div
+                      className={`${
+                        data.name == hoverElement && "hoveredCard"
+                      } card-inner `}
+                    >
                       <div className="card-face front relative h-full  w-full ">
                         <Image
                           alt="Image"

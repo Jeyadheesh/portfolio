@@ -30,7 +30,7 @@ export const LanguagesShowcase = [
   {
     name: "Next.js",
     image: NextJs2Svg,
-    position: "top-[50%] left-[50%] h-[6rem] w-[6rem] ",
+    position: "top-[50%] left-[50%] h-[6rem] w-[6rem]",
     animatePosition: {
       isXAxis: false,
       initial: "-45%",
@@ -45,7 +45,7 @@ export const LanguagesShowcase = [
   {
     name: "Node.js",
     image: Nodejs1,
-    position: "top-[55%] left-[80%] h-[6rem] w-[6rem]  ",
+    position: "top-[55%] left-[75%] h-[6rem] w-[6rem]  ",
   },
   {
     name: "CSS",
@@ -55,7 +55,7 @@ export const LanguagesShowcase = [
   {
     name: "Express.js",
     image: Express2,
-    position: "top-[10%] left-[25%] h-[6rem] w-[6rem]  ",
+    position: "top-[15%] left-[20%] h-[6rem] w-[6rem]  ",
   },
   {
     name: "HTML",
@@ -85,7 +85,7 @@ export const LanguagesShowcase = [
   {
     name: "C",
     image: C,
-    position: "top-[30%] left-[65%] h-[6rem] w-[6rem]  ",
+    position: "top-[35%] left-[65%] h-[`5rem] w-[`5rem]  ",
   },
   {
     name: "Python",

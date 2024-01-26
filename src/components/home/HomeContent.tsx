@@ -32,15 +32,15 @@ const HomeContent = (props: Props) => {
   }, []);
 
   return (
-    <div className="relative flex h-[87vh] overflow-hidden bg-gray-900 ">
+    <div className="relative flex h-full overflow-hidden bg-gray-900 pt-[13vh]">
       {/* <div
         // style={{ top: XY.Y, left: XY.X }}
         className={`fixed bottom-20 left-20 h-[10rem] w-[10rem] rounded-full bg-priClr blur-[90px]`}
       ></div> */}
 
       <motion.div
-        initial={{ translateX: -1000, scale: 0 }}
-        animate={{ translateX: 0, scale: 1 }}
+        initial={{ translateX: -300, scale: 0 }}
+        whileInView={{ translateX: 0, scale: 1 }}
         transition={{
           type: "spring",
           stiffness: 260,

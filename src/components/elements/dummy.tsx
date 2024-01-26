@@ -3,7 +3,7 @@ import Ebuddy1 from "../../../public/ebuddy1.png";
 import Ebuddy2 from "../../../public/ebuddy2.png";
 import Ebuddy3 from "../../../public/ebuddy3.png";
 
-export const ProjectsImageTemplate: ProjectsImageTemplateProp[] = [
+export const ProjectsImageTemplate = [
   {
     image: Ebuddy1,
     lposition: "group-hover:left-3 group-hover:top-3  -rotate-6",
