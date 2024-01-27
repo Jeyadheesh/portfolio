@@ -7,6 +7,7 @@ import ReactImage from "../../../public/React_Logo_SVG.svg";
 import ThreeLine from "../elements/ThreeLine";
 import { motion } from "framer-motion";
 import BackgroundSvg from "../about/BackgroundSvg";
+import HomeBgSvg from "../elements/HomeBgSvg";
 
 type Props = {};
 
@@ -32,11 +33,14 @@ const HomeContent = (props: Props) => {
   }, []);
 
   return (
-    <div className="relative flex h-full overflow-hidden bg-gray-900 pt-[13vh]">
+    <div className="relative flex h-full w-full overflow-hidden bg-gray-900 pt-[13vh]">
       {/* <div
         // style={{ top: XY.Y, left: XY.X }}
         className={`fixed bottom-20 left-20 h-[10rem] w-[10rem] rounded-full bg-priClr blur-[90px]`}
       ></div> */}
+
+      {/* <HomeBgSvg className="absolute left-0 top-0 h-full w-full" />
+      <HomeBgSvg className="absolute left-[50%] top-0 h-full w-full" /> */}
 
       <motion.div
         initial={{ translateX: -300, scale: 0 }}
@@ -46,7 +50,7 @@ const HomeContent = (props: Props) => {
           stiffness: 260,
           damping: 20,
         }}
-        className="borde flex h-full w-[60%] items-center  justify-center   border-red-700"
+        className="borde z-10 flex h-full w-[60%]  items-center justify-center  border-red-700"
       >
         <div className=" borde   flex w-[70%] flex-col overflow-hidden rounded-xl border-priClr  text-5xl  font-bold text-slate-50 shadow-md shadow-priClr dark:text-slate-200">
           <div className=" z-10  bg-vscodeClr1 shadow-sm shadow-black">
@@ -91,9 +95,9 @@ const HomeContent = (props: Props) => {
           stiffness: 300,
           damping: 20,
         }}
-        className="borde justify- flex h-full w-[40%] items-center border-red-700"
+        className="borde justify- z-10 flex h-full w-[40%] items-center border-red-700"
       >
-        <div className=" programmer shadowImg relative h-[70%]  w-[70%]  overflow-hidden rounded-full border-4 border-actClr object-contain p-5">
+        <div className=" programmer shadowImg relative h-[70%]  w-[70%]  overflow-hidden rounded-full border-4 border-actClr bg-white/50 object-contain p-5">
           <Image className="z-10" fill alt="Image" src={Programmer} />
           {/* <div className="borde  absolute h-full w-full border-white object-contain">
             <BackgroundSvg />

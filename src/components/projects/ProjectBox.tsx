@@ -16,7 +16,7 @@ import Tech1 from "../../../public/React_Logo_SVG.svg";
 import Image, { StaticImageData } from "next/image";
 import { ProjectsImageTemplate } from "./ProjectsData";
 import { Typewriter, useTypewriter, Cursor } from "react-simple-typewriter";
-import { TechniquesData } from "../about/LanguagesData";
+import { TechniquesData, TechniquesDataProp } from "../about/LanguagesData";
 import Link from "next/link";
 import TooltipLink from "../elements/TooltipLink";
 
@@ -157,11 +157,10 @@ const ProjectBox = ({ keyy, isLeft, projectData }: Props) => {
                     } relative h-full w-full overflow-hidden border-[3px] border-priClr transition-transform duration-150 group-hover:shadow-md group-hover:shadow-priClr`}
                   >
                     <Image
-                      style={{}}
                       fill
                       // Change this for image
                       // src={projectData.readmedata[i]}
-                      src={projectData?.readmedata[i]}
+                      src={projectData.readmedata[i] as string}
                       className="object-contain "
                       alt="Project Image"
                     />
@@ -241,12 +240,14 @@ const ProjectBox = ({ keyy, isLeft, projectData }: Props) => {
                   // whileInView={{ translateY: 0, opacity: 1 }}
                   className="overflow- curso-pointer hover:scal-[1.06] bg-gradien-to-tr flex h-full cursor-pointer items-center justify-center gap-2 rounded-xl border-2 border-violet-600  bg-violet-500 from-violet-500 to-violet-600 p-2 px-3 transition-transform duration-100 hover:shadow hover:shadow-purple-600  "
                 >
-                  {TechniquesData[data] && (
+                  {TechniquesData[data as keyof TechniquesDataProp] && (
                     <div className="">
                       <Image
                         alt="Image"
                         className="h-7 w-7  rounded-full  bg-white object-contain"
-                        src={TechniquesData[data].image}
+                        src={
+                          TechniquesData[data as keyof TechniquesDataProp].image
+                        }
                       />
                     </div>
                   )}

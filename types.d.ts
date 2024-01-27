@@ -7,7 +7,7 @@ interface GitInfoProp {
   name: string;
   description: string;
   topics: string[];
-  readmedata?: string[];
+  readmedata: string[];
   topics: string[];
   html_url: string;
   homepage: string;

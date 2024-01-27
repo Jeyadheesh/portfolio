@@ -117,11 +117,11 @@ export const TechniquesData = {
   jwt: { name: "JWT", image: JWT },
 };
 
-type A = typeof TechniquesData;
+export type TechniquesDataProp = typeof TechniquesData;
 
 type SkillsType = {
   name: string;
-  techniques: Array<keyof A>;
+  techniques: Array<keyof TechniquesDataProp>;
 }[];
 
 export const skills: SkillsType = [
