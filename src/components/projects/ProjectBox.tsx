@@ -16,7 +16,7 @@ import Tech1 from "../../../public/React_Logo_SVG.svg";
 import Image, { StaticImageData } from "next/image";
 import { ProjectsImageTemplate } from "./ProjectsData";
 import { Typewriter, useTypewriter, Cursor } from "react-simple-typewriter";
-import { TechniquesData, TechniquesDataProp } from "../about/LanguagesData";
+import { TechniquesData, TechniquesDataProp } from "../skills/LanguagesData";
 import Link from "next/link";
 import TooltipLink from "../elements/TooltipLink";
 
@@ -97,7 +97,7 @@ const ProjectBox = ({ keyy, isLeft, projectData }: Props) => {
   return (
     <div
       key={keyy}
-      className={`borde borde items-center justify-center border-white p-20  md:flex md:items-center md:justify-around`}
+      className={`borde borde items-center justify-center border-white p-10 px-20 pb-20  md:flex md:items-center md:justify-around`}
     >
       {/* <PhoneBg /> */}
       {/* <div className="box !bg-white"></div> */}
@@ -115,7 +115,7 @@ const ProjectBox = ({ keyy, isLeft, projectData }: Props) => {
           {/* 1 */}
           {imgIndex.map((data, i) => {
             return (
-              <AnimatePresence key={i} mode="wait">
+              <AnimatePresence key={i} mode="popLayout">
                 <motion.div
                   // variants={ProjectsImageTemplate[data].variant1}
                   initial={

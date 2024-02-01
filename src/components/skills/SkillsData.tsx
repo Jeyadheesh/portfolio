@@ -11,7 +11,7 @@ export const aboutData = [
     image: About1,
     institution: "Al-Ameen Higher Secondary School",
     course: "Ist - Vth standard",
-    batch: "2021 - 2025",
+    batch: "2009 - 2014",
     bgClr: "pink",
     images: [
       {
@@ -37,7 +37,7 @@ export const aboutData = [
     image: About2,
     institution: "PKN Higher Secondary School",
     course: "VIth - XIIth standard",
-    batch: "2021 - 2025",
+    batch: "2014 - 2021",
     bgClr: "pink",
     images: [
       {

@@ -54,13 +54,13 @@ const ProjectsContent = (props: Props) => {
 
   const fetchGitInfo = async () => {
     setIsLoading(true);
-    console.log("fetchGitInfo Called");
+    // console.log("fetchGitInfo Called");
 
     try {
       const { data: gitInfo } = await axios.get<Array<GitInfoProp>>(
         "https://api.github.com/users/Jeyadheesh/starred",
       );
-      console.log(gitInfo);
+      // console.log(gitInfo);
       let finalInfo = gitInfo;
 
       for (let index = 0; index < gitInfo.length; index++) {
@@ -83,7 +83,7 @@ const ProjectsContent = (props: Props) => {
   }, []);
 
   useEffect(() => {
-    console.log("projectsData : ", projectsData.length);
+    // console.log("projectsData : ", projectsData.length);
   }, [projectsData]);
 
   return (

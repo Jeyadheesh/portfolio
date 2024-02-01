@@ -10,7 +10,7 @@ import React, { useEffect, useRef, useState } from "react";
 import DashedLine from "./DashedLine";
 import Image from "next/image";
 
-import { aboutData } from "./AboutData";
+import { aboutData } from "./SkillsData";
 import { useTypewriter } from "react-simple-typewriter";
 import SingleLine from "./SingleLine";
 import BackgroundSvg from "./BackgroundSvg copy";

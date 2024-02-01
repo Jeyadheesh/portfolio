@@ -10,7 +10,7 @@ const config: Config = {
     extend: {
       colors: {
         navClr: "#03001c",
-        priClr: "#D9159A",
+        priClr: "#D9159A", // rgb(20 184 166)
         secClr: "#ffcdf5",
         actClr: "#5EBAB0",
         darkBgClr: "#121212",

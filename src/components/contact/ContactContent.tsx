@@ -102,7 +102,7 @@ const ContactContent = (props: Props) => {
 
       <ToastContainer />
 
-      <div className="mb-5 mt-3 flex justify-evenly">
+      <div className="mb-5 mt-3 flex justify-center gap-20">
         {links.map((data, i) => {
           return (
             <TooltipLink
@@ -110,7 +110,7 @@ const ContactContent = (props: Props) => {
               image={data.image}
               link={data.linkUrl}
               name={data.name}
-              size="h-14 w-14 "
+              size="h-10 w-10 "
             />
           );
         })}

@@ -1,9 +1,9 @@
 "use client";
 import { Variants, motion } from "framer-motion";
 import React, { useState } from "react";
-import { aboutData } from "../about/AboutData";
+import { aboutData } from "../skills/SkillsData";
 import Image from "next/image";
-import SingleLine from "../about/SingleLine";
+import SingleLine from "../skills/SingleLine";
 import TooltipLink from "../elements/TooltipLink";
 
 type Props = {};

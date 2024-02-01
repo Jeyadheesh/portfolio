@@ -1,22 +1,22 @@
 export const links = [
   {
     name: "Github",
-    image: "/githubSvg3.svg",
+    image: "/github.svg",
     linkUrl: "https://github.com/Jeyadheesh",
   },
   {
     name: "LinkedIn",
-    image: "/linkedinSvg.svg",
+    image: "/linkedin.svg",
     linkUrl: "https://www.linkedin.com/in/jeyadheesh-n-65a68623a/",
   },
   {
     name: "Instagram",
-    image: "/instagram1.svg",
+    image: "/instagram.svg",
     linkUrl: "https://www.instagram.com/jeyadheeshn/",
   },
   {
     name: "Mail",
-    image: "/email2.svg",
+    image: "/mail.svg",
     linkUrl: "mailto:njeyadheesh890@gmail.com",
   },
 ];

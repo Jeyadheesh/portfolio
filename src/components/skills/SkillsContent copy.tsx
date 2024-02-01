@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import DashedLine from "./DashedLine";
 import Image from "next/image";
 
-import { aboutData } from "./AboutData";
+import { aboutData } from "./SkillsData";
 import { useTypewriter } from "react-simple-typewriter";
 import SingleLine from "./SingleLine";
 import BackgroundSvg from "./BackgroundSvg";
@@ -104,10 +104,10 @@ const AboutContent = (props: Props) => {
   };
 
   return (
-    <div id="about" className="borde w-full overflow-hidden  border-white">
+    <div id="skills" className="borde w-full overflow-hidden  border-white">
       {/* Title */}
       <div className="borde w-full border-white">
-        <h1 className=" p-5 text-center text-5xl font-bold">About Me</h1>
+        <h1 className=" p-5 text-center text-5xl font-bold">Skills</h1>
         <button
           onClick={() => {
             setIsDoe((prev) => !prev);

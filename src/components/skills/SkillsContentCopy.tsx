@@ -4,7 +4,7 @@ import React from "react";
 import DashedLine from "./DashedLine";
 import Image from "next/image";
 
-import { aboutData } from "./AboutData";
+import { aboutData } from "./SkillsData";
 import { useTypewriter } from "react-simple-typewriter";
 import SingleLine from "./SingleLine";
 import About1 from "../../../public/about1.png";
@@ -47,9 +47,9 @@ const AboutContent = (props: Props) => {
   };
 
   return (
-    <div id="about" className="borde w-full overflow-hidden  border-white">
+    <div id="skills" className="borde w-full overflow-hidden  border-white">
       <div>
-        <h1 className="p-5 text-center text-5xl font-bold">About</h1>
+        <h1 className="p-5 text-center text-5xl font-bold">Skills</h1>
       </div>
       <motion.div
         // variants={container}

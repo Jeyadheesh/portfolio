@@ -6,8 +6,9 @@ import Programmer from "../../../public/prgmr6.png";
 import ReactImage from "../../../public/React_Logo_SVG.svg";
 import ThreeLine from "../elements/ThreeLine";
 import { motion } from "framer-motion";
-import BackgroundSvg from "../about/BackgroundSvg";
+import BackgroundSvg from "../skills/BackgroundSvg";
 import HomeBgSvg from "../elements/HomeBgSvg";
+import Link from "next/link";
 
 type Props = {};
 
@@ -33,7 +34,7 @@ const HomeContent = (props: Props) => {
   }, []);
 
   return (
-    <div className="relative flex h-full w-full overflow-hidden bg-gray-900 pt-[13vh]">
+    <div className="relative flex h-full w-full items-center justify-center overflow-hidden pt-[13vh]">
       {/* <div
         // style={{ top: XY.Y, left: XY.X }}
         className={`fixed bottom-20 left-20 h-[10rem] w-[10rem] rounded-full bg-priClr blur-[90px]`}
@@ -50,20 +51,28 @@ const HomeContent = (props: Props) => {
           stiffness: 260,
           damping: 20,
         }}
-        className="borde z-10 flex h-full w-[60%]  items-center justify-center  border-red-700"
+        className="borde z-10 flex h-full w-[50%] flex-col items-center  justify-center gap-4  border-red-700"
       >
-        <div className=" borde   flex w-[70%] flex-col overflow-hidden rounded-xl border-priClr  text-5xl  font-bold text-slate-50 shadow-md shadow-priClr dark:text-slate-200">
-          <div className=" z-10  bg-vscodeClr1 shadow-sm shadow-black">
-            <div className="flex h-full  w-fit  gap-1 bg-vscodeClr p-3">
+        {/* Terminal */}
+        <div className=" borde flex  w-[70%] flex-col overflow-hidden rounded-xl border-priClr  text-4xl  font-bold text-slate-50 shadow-md shadow-black dark:text-slate-200">
+          {/* Head */}
+          <div className=" z-10 flex justify-between  bg-vscodeClr1 shadow shadow-vscodeClr1">
+            <div className="flex h-full  w-fit  gap-2 bg-vscodeClr p-3">
               <Image alt="ReactImage" src={ReactImage} width={20} height={20} />
-              <p className="text-sm font-medium">HomeContent.tsx</p>
+              <p className="text-sm font-medium">Me.tsx</p>
+            </div>
+            <div className="my-auto mr-8 flex gap-3 text-base">
+              <div className="h-4 w-4 rounded-full bg-red-600"></div>
+              <div className="h-4 w-4 rounded-full bg-yellow-400"></div>
+              <div className="h-4 w-4 rounded-full bg-green-600"></div>
             </div>
           </div>
+          {/* Body */}
           <div className="flex flex-col gap-1 bg-vscodeClr p-3">
             <div>
-              <p className=" text-2xl ">Hello!</p>
+              <p className=" text-xl ">Hello!</p>
               <div className="flex gap-3">
-                <p>I&apos;m </p>
+                <p className="">I&apos;m </p>
                 <div className="relative ">
                   <p className="italic text-priClr">Jeyadheesh</p>
                   <ThreeLine
@@ -74,9 +83,9 @@ const HomeContent = (props: Props) => {
                 </div>
               </div>
             </div>
-            <span className="text-2xl">and</span>
+            <span className="text-xl">and</span>
             <p className="">
-              I&apos;m a{" "}
+              <span className="">I&apos;m a </span>
               <span className="italic text-priClr">
                 {text}
                 <Cursor cursorStyle="|" />
@@ -84,9 +93,26 @@ const HomeContent = (props: Props) => {
             </p>
           </div>
         </div>
+
+        {/*  */}
+        <div className="w-full p-3 text-[1.1rem] font-bold italic">
+          <p>
+            &ldquo; Proficient full stack developer with a passion for crafting
+            innovative solutions, and I am ready to contribute my skills and
+            expertise to exciting new projects. &rdquo;
+          </p>
+        </div>
+
+        {/* btn */}
+        <div className="flex gap-5">
+          <Link href={"/Jeyadheesh_Resume.pdf"} target="_blank" download>
+            Resume
+          </Link>
+          <button>Contact</button>
+        </div>
       </motion.div>
 
-      <motion.div
+      {/* <motion.div
         initial={{ translateX: 1000, scale: 0 }}
         exit={{ scale: 0 }}
         animate={{ translateX: 0, scale: 1 }}
@@ -95,15 +121,15 @@ const HomeContent = (props: Props) => {
           stiffness: 300,
           damping: 20,
         }}
-        className="borde justify- z-10 flex h-full w-[40%] items-center border-red-700"
+        className="justify- borde z-10 flex h-full w-[40%] items-center border-red-700"
       >
-        <div className=" programmer shadowImg relative h-[70%]  w-[70%]  overflow-hidden rounded-full border-4 border-actClr bg-white/50 object-contain p-5">
+        <div className=" programmer shadowImg relative h-[70%]  w-[70%]  overflow-hidden rounded-full border-4 border-priClr/60 bg-white/50 object-contain p-5">
           <Image className="z-10" fill alt="Image" src={Programmer} />
           {/* <div className="borde  absolute h-full w-full border-white object-contain">
             <BackgroundSvg />
-          </div> */}
+          </div>
         </div>
-      </motion.div>
+      </motion.div> */}
     </div>
   );
 };
