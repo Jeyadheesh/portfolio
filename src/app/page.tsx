@@ -10,7 +10,7 @@ import ScrollDetector from "@/components/elements/ScrollUp";
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { useNavbar } from "@/store/useNavbar";
-import { useIsVisible } from "@/components/elements/useIsVisible";
+// import { useIsVisible } from "@/components/elements/useIsVisible";
 import { useInView } from "react-intersection-observer";
 
 export default function Home() {
@@ -133,7 +133,7 @@ export default function Home() {
         // ref={(e) => (refs[4] = e)}
         // onViewportEnter={(e) => viewEnter(e)}
         id="contact"
-        className="items- bg-svgBg1 flex min-h-screen w-full rotate-180 justify-center bg-cover "
+        className="items- flex min-h-screen w-full rotate-180 justify-center bg-svgBg1 bg-cover "
       >
         <ContactContent />
       </motion.div>
