@@ -272,3 +272,182 @@
 .contactBtn:hover svg path {
   fill: #181717;
 }
+
+/* Button Style */
+.stars {
+  position: absolute;
+  opacity: 0;
+  top: -0.3em;
+  right: -0.3em;
+  height: 100%;
+  transition:
+    transform 300ms,
+    opacity 150ms;
+}
+
+/* .stars :nth-child(n) {
+  fill: #999;
+} */
+
+.btnStyle {
+  position: relative;
+  cursor: pointer;
+  padding: 1em 2em;
+  border: 0;
+  border-radius: 0.5em;
+  font-weight: bolder;
+  transition:
+    transform 150ms,
+    box-shadow 150ms;
+  box-shadow: 0 0 var(--priClr);
+  background-color: #f1f1f1;
+  color: #333;
+}
+
+.btnStyle:hover {
+  transform: translate(0em, 0em);
+  transform: scale(1.05);
+  box-shadow: -0.3em 0.3em var(--priClr);
+}
+
+.btnStyle:hover > .stars {
+  opacity: 1;
+  transform: translate(0.2em, -0.2em);
+}
+
+.btnStyle:active > .stars :nth-child(n) {
+  /* fill: #ccc; */
+}
+
+.borderAnimation {
+  z-index: 10;
+  /* position: relative; */
+}
+
+.borderAnimation::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -10%;
+  translate: 0% -50%;
+  height: 50%;
+  width: 120%;
+  /* background-color: red; */
+  /* animation: amm 4s linear infinite; */
+  z-index: -20;
+}
+
+@keyframes amm {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.forZ {
+  /* z-index: 50; */
+  /* background-color: black; */
+}
+
+/* body { background-color:#333; } */
+#snow {
+  background: none;
+  font-family: Androgyne;
+  /* background-image: url("http://www.wearewebstars.dk/codepen/img/s1.png"),
+    url("http://www.wearewebstars.dk/codepen/img//s2.png"),
+    url("http://www.wearewebstars.dk/codepen/img//s3.png"); */
+  /* background-color: red; */
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 50;
+  -webkit-animation: snow 10s linear infinite;
+  -moz-animation: snow 10s linear infinite;
+  -ms-animation: snow 10s linear infinite;
+  animation: snow 10s linear infinite;
+}
+@keyframes snow {
+  0% {
+    background-position:
+      0px 0px,
+      0px 0px,
+      0px 0px;
+  }
+  50% {
+    background-position:
+      500px 500px,
+      100px 200px,
+      -100px 150px;
+  }
+  100% {
+    background-position:
+      500px 1000px,
+      200px 400px,
+      -100px 300px;
+  }
+}
+@-moz-keyframes snow {
+  0% {
+    background-position:
+      0px 0px,
+      0px 0px,
+      0px 0px;
+  }
+  50% {
+    background-position:
+      500px 500px,
+      100px 200px,
+      -100px 150px;
+  }
+  100% {
+    background-position:
+      400px 1000px,
+      200px 400px,
+      100px 300px;
+  }
+}
+@-webkit-keyframes snow {
+  0% {
+    background-position:
+      0px 0px,
+      0px 0px,
+      0px 0px;
+  }
+  50% {
+    background-position:
+      500px 500px,
+      100px 200px,
+      -100px 150px;
+  }
+  100% {
+    background-position:
+      500px 1000px,
+      200px 400px,
+      -100px 300px;
+  }
+}
+@-ms-keyframes snow {
+  0% {
+    background-position:
+      0px 0px,
+      0px 0px,
+      0px 0px;
+  }
+  50% {
+    background-position:
+      500px 500px,
+      100px 200px,
+      -100px 150px;
+  }
+  100% {
+    background-position:
+      500px 1000px,
+      200px 400px,
+      -100px 300px;
+  }
+}

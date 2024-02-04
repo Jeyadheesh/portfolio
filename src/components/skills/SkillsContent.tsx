@@ -39,7 +39,7 @@ const AboutContent = (props: Props) => {
   }, []);
 
   return (
-    <div className="borde w-full overflow-hidden  border-white">
+    <div className="borde w-full overflow-hidden border-white bg-gradient-to-bl  from-gray-900 via-gray-900 to-gray-900  bg-cover">
       {/* Title */}
       <div className="borde w-full border-white">
         <h1 className=" p-5 text-center text-5xl font-bold">Skills</h1>
@@ -48,12 +48,12 @@ const AboutContent = (props: Props) => {
       <div className="flex justify-center">
         {/* Left */}
         <div className="w-[50vw]">
-          <div className="flex flex-col gap-5">
+          <div className="flex flex-col items-center gap-5 ">
             {skills.map((skill, i) => {
               return (
                 <div
                   key={i}
-                  className="w-[80%] rounded-lg border-2 border-gray-700 px-2 py-5 shadow shadow-white"
+                  className="w-[75%] rounded-lg border-2 border-gray-700 px-2 py-5 shadow shadow-white"
                 >
                   <h1 className="mb-3 text-center text-3xl font-bold text-priClr">
                     {skill.name}

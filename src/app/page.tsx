@@ -70,8 +70,14 @@ export default function Home() {
     };
 
     window.addEventListener("scroll", handleScroll);
+    window.addEventListener("click", () => {
+      setScrollDir("down");
+    });
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      window.addEventListener("click", () => {
+        setScrollDir("down");
+      });
     };
   }, []);
 
@@ -127,7 +133,7 @@ export default function Home() {
         // ref={(e) => (refs[4] = e)}
         // onViewportEnter={(e) => viewEnter(e)}
         id="contact"
-        className="items- flex min-h-screen justify-center "
+        className="items- bg-svgBg1 flex min-h-screen w-full rotate-180 justify-center bg-cover "
       >
         <ContactContent />
       </motion.div>

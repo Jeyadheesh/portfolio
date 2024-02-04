@@ -5,10 +5,12 @@ import { Cursor, useTypewriter } from "react-simple-typewriter";
 import Programmer from "../../../public/prgmr6.png";
 import ReactImage from "../../../public/React_Logo_SVG.svg";
 import ThreeLine from "../elements/ThreeLine";
-import { motion } from "framer-motion";
+import { motion, useMotionValueEvent } from "framer-motion";
 import BackgroundSvg from "../skills/BackgroundSvg";
 import HomeBgSvg from "../elements/HomeBgSvg";
 import Link from "next/link";
+import Button from "../elements/Button";
+import useMousePosition from "@/hooks/useMousePosition";
 
 type Props = {};
 
@@ -18,6 +20,9 @@ const HomeContent = (props: Props) => {
     words: ["Full Stack Developer", "Web Developer", "Programmer", "Coder"],
     loop: 0,
   });
+
+  // const { x, y } = useMousePosition();
+  // console.log(x, y);
 
   useEffect(() => {
     // const unsub = () => {
@@ -34,9 +39,14 @@ const HomeContent = (props: Props) => {
   }, []);
 
   return (
-    <div className="relative flex h-full w-full items-center justify-center overflow-hidden pt-[13vh]">
+    <div className="relative flex h-full w-full items-center justify-center overflow-hidden bg-svgBg4 bg-cover pt-[13vh]  md:pt-[13vh]">
       {/* <div
-        // style={{ top: XY.Y, left: XY.X }}
+        style={{ top: y, left: x }}
+        className="absolute  h-20 w-20 -translate-x-[50%] -translate-y-[50%]  bg-red-500 blur-3xl"
+      ></div> */}
+      {/* <div id="snow"></div> */}
+      {/* <div
+        style={{ top: y, left: x }}
         className={`fixed bottom-20 left-20 h-[10rem] w-[10rem] rounded-full bg-priClr blur-[90px]`}
       ></div> */}
 
@@ -44,17 +54,17 @@ const HomeContent = (props: Props) => {
       <HomeBgSvg className="absolute left-[50%] top-0 h-full w-full" /> */}
 
       <motion.div
-        initial={{ translateX: -300, scale: 0 }}
-        whileInView={{ translateX: 0, scale: 1 }}
-        transition={{
-          type: "spring",
-          stiffness: 260,
-          damping: 20,
-        }}
-        className="borde z-10 flex h-full w-[50%] flex-col items-center  justify-center gap-4  border-red-700"
+        // initial={{ translateX: -300, scale: 0 }}
+        // whileInView={{ translateX: 0, scale: 1 }}
+        // transition={{
+        //   type: "spring",
+        //   stiffness: 260,
+        //   damping: 20,
+        // }}
+        className="borde z-10 flex h-full w-11/12 flex-col items-center justify-center  gap-10 border-red-700  md:w-[50%]"
       >
         {/* Terminal */}
-        <div className=" borde flex  w-[70%] flex-col overflow-hidden rounded-xl border-priClr  text-4xl  font-bold text-slate-50 shadow-md shadow-black dark:text-slate-200">
+        <div className=" rounde-xl flex w-full  flex-col overflow-hidden rounded-lg border-[3px] border-priClr text-xl font-bold  text-slate-50  shadow-md shadow-gray-950 md:w-[70%] md:text-4xl">
           {/* Head */}
           <div className=" z-10 flex justify-between  bg-vscodeClr1 shadow shadow-vscodeClr1">
             <div className="flex h-full  w-fit  gap-2 bg-vscodeClr p-3">
@@ -70,23 +80,32 @@ const HomeContent = (props: Props) => {
           {/* Body */}
           <div className="flex flex-col gap-1 bg-vscodeClr p-3">
             <div>
-              <p className=" text-xl ">Hello!</p>
+              <p className=" text-base md:text-xl ">
+                <span className="mr-2 text-sm text-[#636c83]">1</span>Hello!
+              </p>
               <div className="flex gap-3">
-                <p className="">I&apos;m </p>
+                <p className="">
+                  <span className=" mr-2 h-fit text-sm text-[#636c83]">2</span>
+                  I&apos;m{" "}
+                </p>
                 <div className="relative ">
-                  <p className="italic text-priClr">Jeyadheesh</p>
+                  <p className=" text-priClr">Jeyadheesh</p>
                   <ThreeLine
-                    width={30}
-                    height={30}
+                    width={28}
+                    height={28}
                     className="-right-7 -top-3"
                   />
                 </div>
               </div>
             </div>
-            <span className="text-xl">and</span>
+            <span className=" text-base md:text-xl">
+              <span className="mr-2 text-sm text-[#636c83]">3</span>and
+            </span>
             <p className="">
-              <span className="">I&apos;m a </span>
-              <span className="italic text-priClr">
+              <span className="">
+                <span className="mr-2 text-sm text-[#636c83]">4</span>I&apos;m a{" "}
+              </span>
+              <span className=" text-priClr">
                 {text}
                 <Cursor cursorStyle="|" />
               </span>
@@ -94,21 +113,28 @@ const HomeContent = (props: Props) => {
           </div>
         </div>
 
-        {/*  */}
-        <div className="w-full p-3 text-[1.1rem] font-bold italic">
+        {/* About Description */}
+        {/* <div className="w-full p-3 text-[1.1rem] font-bold ">
           <p>
             &ldquo; Proficient full stack developer with a passion for crafting
             innovative solutions, and I am ready to contribute my skills and
             expertise to exciting new projects. &rdquo;
           </p>
-        </div>
+        </div> */}
 
         {/* btn */}
-        <div className="flex gap-5">
-          <Link href={"/Jeyadheesh_Resume.pdf"} target="_blank" download>
-            Resume
+        <div className="flex gap-5 ">
+          <Link
+            className="fill-priClr"
+            href={"/Jeyadheesh_Resume.pdf"}
+            target="_blank"
+            download
+          >
+            <Button text="Resume" />
           </Link>
-          <button>Contact</button>
+          <Link href={"#contact"} className="fill-priClr">
+            <Button text="Contact" />
+          </Link>
         </div>
       </motion.div>
 

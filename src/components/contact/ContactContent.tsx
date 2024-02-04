@@ -95,7 +95,7 @@ const ContactContent = (props: Props) => {
   };
 
   return (
-    <div className="">
+    <div className="-rotate-180">
       <div>
         <h1 className="p-5 text-center text-5xl font-bold">Contact</h1>
       </div>
@@ -164,11 +164,11 @@ const ContactContent = (props: Props) => {
         </div> */}
 
         <div className="borde  m-auto h-auto  w-[50vw] border-white">
-          <div className="boxShadow relative rounded-xl border-4 border-priClr bg-gradient-to-br  p-7 transition-all duration-150 hover:shadow-priClr">
+          <div className="boxShadow borderAnimation relative rounded-xl border-4 border-priClr bg-gradient-to-br  p-7 transition-all duration-150 hover:shadow-priClr">
             {/* after:absolute after:-top-1 after:left-0  after:h-[calc(100%+16px)] after:w-[calc(100%-10px)]  after:bg-white after:content-['']  */}
 
             {/*  */}
-            <div className="flex flex-col gap-5">
+            <div className="forZ flex flex-col gap-5">
               {/*  */}
               {/* <div className="w group relative z-0 mx-auto mb-5 w-8/12 text-lg">
                 <input

@@ -18,7 +18,10 @@ const config: Config = {
         vscodeClr1: "#21252b",
       },
       backgroundImage: {
-        // svgBg: "url('/about1.png')",
+        svgBg1: "url('/Sprinkle.svg')",
+        svgBg2: "url('/ShinyOverlay.svg')",
+        svgBg3: "url('/ShinyOverlay1.svg')",
+        svgBg4: "url('/Moon.svg')",
       },
     },
   },
