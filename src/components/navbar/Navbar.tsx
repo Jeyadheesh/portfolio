@@ -18,7 +18,7 @@ const Navbar = ({ scrollDir }: Props) => {
   const tref = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    console.log(activeElement);
+    // console.log(activeElement);
   }, [activeElement]);
 
   return (
@@ -71,7 +71,7 @@ const Navbar = ({ scrollDir }: Props) => {
                     onClick={() => setActiveElement(data.name)}
                     className={`${
                       activeElement == data.name && "text-priClr"
-                    } peer font-bold  hover:text-priClr`}
+                    } peer font-bold `}
                     href={data.link}
                   >
                     .{data.name}( )
@@ -80,7 +80,7 @@ const Navbar = ({ scrollDir }: Props) => {
                   <ThreeLine
                     className={`${
                       activeElement == data.name ? "block" : "hidden"
-                    } borde -right-4 -top-2  border-black transition-all duration-200 peer-hover:block`}
+                    } borde -right-4 -top-2  border-black transition-all duration-200`}
                     width={20}
                     height={20}
                   />

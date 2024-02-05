@@ -4,7 +4,7 @@ import React from "react";
 import DashedLine from "./DashedLine";
 import Image from "next/image";
 
-import { aboutData } from "./SkillsData";
+import { aboutData } from "../education/EducationData";
 import { useTypewriter } from "react-simple-typewriter";
 import SingleLine from "./SingleLine";
 import About1 from "../../../public/about1.png";

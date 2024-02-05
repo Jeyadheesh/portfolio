@@ -97,7 +97,7 @@ const ProjectBox = ({ keyy, isLeft, projectData }: Props) => {
   return (
     <div
       key={keyy}
-      className={`borde borde items-center justify-center border-white p-10 px-20 pb-20  md:flex md:items-center md:justify-around`}
+      className={`borde borde flex-col items-center justify-center border-white p-10 px-20 pb-20  md:flex md:flex-row md:items-center md:justify-around`}
     >
       {/* <PhoneBg /> */}
       {/* <div className="box !bg-white"></div> */}
@@ -110,7 +110,7 @@ const ProjectBox = ({ keyy, isLeft, projectData }: Props) => {
           initial={isLeft ? "linitial" : "rinitial"}
           whileInView={isLeft ? "lanimate" : "ranimate"}
           // ref={scope}
-          className="borde-2 group relative min-h-[20rem] w-[35rem]  cursor-pointer border-white transition-transform duration-100 hover:scale-[1.03] active:scale-100"
+          className="group relative min-h-[10rem] w-[17rem] cursor-pointer border-2 border-white  transition-transform duration-100 hover:scale-[1.03] active:scale-100 md:min-h-[20rem] md:w-[35rem]"
         >
           {/* 1 */}
           {imgIndex.map((data, i) => {
@@ -154,14 +154,14 @@ const ProjectBox = ({ keyy, isLeft, projectData }: Props) => {
                       isLeft
                         ? ProjectsImageTemplate[data].lposition
                         : ProjectsImageTemplate[data].rposition
-                    } relative h-full w-full overflow-hidden border-[3px] border-priClr transition-transform duration-150 group-hover:shadow-md group-hover:shadow-priClr`}
+                    } relative h-full w-full overflow-hidden transition-transform duration-150 group-hover:shadow-md group-hover:shadow-priClr`}
                   >
                     <Image
                       fill
                       // Change this for image
                       // src={projectData.readmedata[i]}
                       src={projectData.readmedata[i] as string}
-                      className="object-contain "
+                      className="border-[3px]  border-priClr object-cover"
                       alt="Project Image"
                     />
                   </div>
@@ -184,7 +184,7 @@ const ProjectBox = ({ keyy, isLeft, projectData }: Props) => {
         }
         whileInView={{ scale: 1, translateX: 0 }}
         transition={{ type: "spring", duration: 0.7 }}
-        className="flex w-5/12 flex-col gap-3"
+        className="order-first flex w-5/12 flex-col gap-3 md:order-none"
       >
         <div className="flex items-center gap-3">
           <motion.h1

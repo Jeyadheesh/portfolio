@@ -1,7 +1,7 @@
 "use client";
 import { Variants, motion } from "framer-motion";
 import React, { useState } from "react";
-import { aboutData } from "../skills/SkillsData";
+import { educationData } from "./EducationData";
 import Image from "next/image";
 import SingleLine from "../skills/SingleLine";
 import TooltipLink from "../elements/TooltipLink";
@@ -111,7 +111,9 @@ const EducationContent = (props: Props) => {
       {/* Title */}
       <div className="flex items-center justify-center gap-0 ">
         <div className="borde border-white">
-          <h1 className=" p-5 text-center text-5xl font-bold">Education</h1>
+          <h1 className=" p-5 text-center text-3xl font-bold md:text-5xl">
+            Education
+          </h1>
         </div>
         {/* <button
           onClick={() => {
@@ -129,7 +131,7 @@ const EducationContent = (props: Props) => {
             image="/animation1.svg"
             onClickFun={doAnimation}
             name="Animate"
-            size="h-9 w-9"
+            size="md:h-9 md:w-9 w-7 h-7"
           />
         </div>
       </div>
@@ -141,16 +143,16 @@ const EducationContent = (props: Props) => {
         viewport={{ once: true }}
         className="borde  mx-auto border-white text-black"
       >
-        {aboutData.map((data, i) => {
+        {educationData.map((data, i) => {
           return (
             <motion.div
               key={i}
               variants={item}
-              className="borde mx-auto flex w-fit  flex-col  gap-3 border-red-900 pb-3 text-slate-50"
+              className="borde mx-auto flex  w-fit  flex-col  gap-2 border-red-900 pb-3 text-slate-50 md:gap-3"
             >
               {/* Box */}
               <motion.div
-                className={`borde group  relative flex h-[8re] items-center justify-center gap-7 border-white`}
+                className={`borde item-center  group relative  flex justify-center gap-7 border-white`}
               >
                 {data.images?.map((d, i) => {
                   return (
@@ -158,7 +160,7 @@ const EducationContent = (props: Props) => {
                       key={i}
                       className={`${d.position} absolute opacity-50 transition-transform duration-200  `}
                     >
-                      <div className="relative h-16 w-16">
+                      <div className="relative h-8 w-8 md:h-16 md:w-16">
                         <Image
                           alt="Image"
                           fill
@@ -178,14 +180,17 @@ const EducationContent = (props: Props) => {
                   // initial={{ opacity: 0, translateY: 100 }}
                   // whileInView={{ opacity: 1, translateY: 0 }}
                   // transition={{ duration: 0.4 }}
-                  className="relative w-20"
+                  className="borde flex  flex-col border-white  "
                 >
-                  <Image
-                    alt="Image"
-                    className=" borde w-fit rounded-lg border-white"
-                    src={data.image}
-                  />
-                  <h1 className="borde w-[120%] border-white  font-semibold">
+                  <div className="relative mx-auto h-[20vw] w-[16vw] md:mx-0  md:h-32 md:w-24">
+                    <Image
+                      alt="Image"
+                      className=" borde rounded-lg  border-white object-contain"
+                      src={data.image}
+                      fill
+                    />
+                  </div>
+                  <h1 className="borde w-[120%] text-nowrap border-white text-xs  font-semibold md:text-base  ">
                     {data.batch}
                   </h1>
                 </motion.div>
@@ -198,10 +203,10 @@ const EducationContent = (props: Props) => {
                       delay: i == 0 ? 0.5 : i == 1 ? 1.7 : 2.9,
                     }}
                     // style={{ background: data.bgClr }}
-                    className="relative w-[50vw] cursor-pointer rounded-xl border-[3px] border-gray-400 bg-gray-800 p-3.5  "
+                    className="relative w-[65vw] cursor-pointer  rounded-xl border-2 border-gray-400 bg-gray-800 p-2 md:w-[50vw] md:border-[3px] md:p-3.5  "
                   >
-                    <div className=" mb-2 flex items-center gap-3">
-                      <div className="borde relative h-[2.2rem] w-[2.2rem] border-white  ">
+                    <div className="mb-0.5 flex items-center gap-1 md:mb-2 md:gap-3">
+                      <div className="borde relative hidden h-5 w-5 border-white md:block md:h-[2.2rem] md:w-[2.2rem]  ">
                         <Image
                           alt="Image"
                           src={"/college3.svg"}
@@ -209,12 +214,12 @@ const EducationContent = (props: Props) => {
                           fill
                         />
                       </div>
-                      <h2 className="borde border-white text-3xl font-semibold">
+                      <h2 className="text-[0.75rem] font-normal leading-5 md:text-3xl md:font-semibold md:leading-snug">
                         {data.institution}
                       </h2>
                     </div>
-                    <div className="flex items-center gap-3">
-                      <div className="relative h-[2.2rem] w-[2.2rem]  ">
+                    <div className="flex items-center gap-1 md:gap-3">
+                      <div className="relative hidden h-5 w-5 md:block md:h-[2.2rem] md:w-[2.2rem]  ">
                         <Image
                           alt="Image"
                           src={"/course1.svg"}
@@ -222,18 +227,19 @@ const EducationContent = (props: Props) => {
                           fill
                         />
                       </div>
-                      <p className="text-3xl font-semibold text-priClr">
+                      <p className="text-[0.75rem] font-normal leading-5 text-priClr md:text-3xl md:font-semibold md:leading-snug">
                         {data.course}
                       </p>
                     </div>
-                    <div className="triShape absolute -left-8 top-[30%] h-8 w-8 bg-[rgb(156_163_175)]"></div>
+
+                    <div className="triShape absolute -left-5 top-[30%] h-5 w-5 bg-[rgb(156_163_175)] md:-left-8 md:top-[30%] md:h-8 md:w-8"></div>
 
                     {/* <div className="triShape absolute -left-8 top-[30%] h-8 w-8 bg-white"></div> */}
                   </motion.div>
                 </div>
               </motion.div>
               {i != 2 && (
-                <motion.div className="borde w-20 border-white">
+                <motion.div className="borde w-12 border-white md:w-20">
                   <SingleLine delay={i == 0 ? 0.7 : 1.9} />
                   <SingleLine delay={i == 0 ? 0.9 : 2.1} />
                   <SingleLine delay={i == 0 ? 1.1 : 2.3} />

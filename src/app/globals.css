@@ -10,6 +10,7 @@
 * {
   box-sizing: border-box;
   scroll-behavior: smooth;
+  /* overflow: auto; */
 }
 
 .stoke {
@@ -195,8 +196,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-weight: bold;
+  font-weight: normal;
   color: white;
+}
+
+@media (min-width: 768px) {
+  .card-face {
+    font-weight: bold;
+    font-weight: normal;
+  }
 }
 
 .front {
@@ -292,10 +300,10 @@
 .btnStyle {
   position: relative;
   cursor: pointer;
-  padding: 1em 2em;
+  padding: 0.7em 1.5em;
   border: 0;
   border-radius: 0.5em;
-  font-weight: bolder;
+  font-weight: bold;
   transition:
     transform 150ms,
     box-shadow 150ms;
@@ -317,6 +325,13 @@
 
 .btnStyle:active > .stars :nth-child(n) {
   /* fill: #ccc; */
+}
+
+@media (min-width: 768px) {
+  .btnStyle {
+    padding: 1em 2em;
+    font-weight: bolder;
+  }
 }
 
 .borderAnimation {

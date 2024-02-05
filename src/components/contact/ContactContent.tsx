@@ -97,12 +97,14 @@ const ContactContent = (props: Props) => {
   return (
     <div className="-rotate-180">
       <div>
-        <h1 className="p-5 text-center text-5xl font-bold">Contact</h1>
+        <h1 className="p-2 text-center text-3xl font-bold md:p-5 md:text-5xl">
+          Contact
+        </h1>
       </div>
 
       <ToastContainer />
 
-      <div className="mb-5 mt-3 flex justify-center gap-20">
+      <div className="m-3 mb-4 flex justify-center gap-7 md:mb-5 md:mt-3 md:gap-20">
         {links.map((data, i) => {
           return (
             <TooltipLink
@@ -110,7 +112,7 @@ const ContactContent = (props: Props) => {
               image={data.image}
               link={data.linkUrl}
               name={data.name}
-              size="h-10 w-10 "
+              size="md:h-10 md:w-10 h-8 w-8 "
             />
           );
         })}
@@ -135,7 +137,7 @@ const ContactContent = (props: Props) => {
         </div> */}
       </div>
 
-      <div className="flex gap-5">
+      <div className="flex md:gap-5">
         {/* <div className="relative h-[60vh] w-[50vw] border border-white bg-white">
           <div className="block h-full w-full">
             <Image
@@ -163,8 +165,8 @@ const ContactContent = (props: Props) => {
           </div>
         </div> */}
 
-        <div className="borde  m-auto h-auto  w-[50vw] border-white">
-          <div className="boxShadow borderAnimation relative rounded-xl border-4 border-priClr bg-gradient-to-br  p-7 transition-all duration-150 hover:shadow-priClr">
+        <div className="borde m-0 h-auto w-[calc(90vw)] border-white md:m-auto md:w-[50vw]">
+          <div className="boxShadow borderAnimation relative w-full rounded-xl border-4 border-priClr bg-gradient-to-br p-5  transition-all duration-150 hover:shadow-priClr md:p-7">
             {/* after:absolute after:-top-1 after:left-0  after:h-[calc(100%+16px)] after:w-[calc(100%-10px)]  after:bg-white after:content-['']  */}
 
             {/*  */}
@@ -188,10 +190,10 @@ const ContactContent = (props: Props) => {
               </div> */}
 
               {/* Main */}
-              <div className="mx-auto w-8/12 text-lg">
+              <div className="md:mx-auto md:w-8/12 md:text-lg">
                 <label
                   htmlFor="name"
-                  className="mb-2 block text-lg font-semibold text-white"
+                  className="mb-2 block font-semibold text-white md:text-lg"
                 >
                   Name
                 </label>
@@ -221,10 +223,10 @@ const ContactContent = (props: Props) => {
                 </div>
               </div>
 
-              <div className="mx-auto w-8/12 text-lg">
+              <div className="md:mx-auto md:w-8/12 md:text-lg">
                 <label
                   htmlFor="email"
-                  className="mb-2 block text-lg font-semibold text-white"
+                  className="mb-2 block font-semibold text-white md:text-lg"
                 >
                   Email
                 </label>
@@ -252,10 +254,10 @@ const ContactContent = (props: Props) => {
                 </div>
               </div>
 
-              <div className="mx-auto w-8/12 text-lg">
+              <div className="md:mx-auto md:w-8/12 md:text-lg">
                 <label
                   htmlFor="message"
-                  className="mb-2 block text-lg font-semibold text-white"
+                  className="mb-2 block font-semibold text-white md:text-lg"
                 >
                   Message
                 </label>

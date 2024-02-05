@@ -92,14 +92,16 @@ const ProjectsContent = (props: Props) => {
       {/* <pre>{readmeContent}</pre> */}
       {/* <div className="box !bg-white"></div> */}
       <div>
-        <h1 className="p-5  text-center text-6xl font-bold">Projects</h1>
+        <h1 className="p-5  text-center text-3xl font-bold md:text-5xl">
+          Projects
+        </h1>
         {/* <h1>{projectsData.length}</h1> */}
         {isLoading ? (
           <div className="mt-10">
             <Spinner />
           </div>
         ) : (
-          <div className="mt-[15rem] flex flex-col gap-[10rem] ">
+          <div className="mt-10 flex flex-col gap-[10rem] md:mt-[15rem] ">
             {projectsData?.map((data, i) => {
               return (
                 <div key={i}>

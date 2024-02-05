@@ -19,7 +19,7 @@ const SingleLine = ({ delay }: Props) => {
     <motion.div
       variants={pathItem}
       // transition={{ delay: 2 }}
-      className="borde mx-auto w-8 border-purple-400"
+      className="borde mx-auto w-6 border-purple-400 md:w-8"
     >
       <div className="after:h-3 after:w-10 after:bg-white after:content-[''] ">
         <svg

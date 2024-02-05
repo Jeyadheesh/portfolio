@@ -86,7 +86,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div ref={containerRef} className="bg-gray-900 text-slate-50">
+    <div ref={containerRef} className="w-full bg-gray-900 text-slate-50">
       {/* Home */}
       <Navbar scrollDir={scrollDir} />
       <motion.div
@@ -113,7 +113,7 @@ export default function Home() {
         // ref={(e) => (refs[2] = e)}
         // onViewportEnter={(e) => viewEnter(e)}
         id="education"
-        className="  min-h-[100vh] flex-col items-center justify-center border-white pb-5"
+        className="min-h-[100vh] flex-col items-center justify-center  border-white pb-5"
       >
         <EducationContent />
       </motion.div>

@@ -17,7 +17,7 @@ type Props = {};
 const HomeContent = (props: Props) => {
   const [XY, setXY] = useState<XY>({ X: "left-0", Y: "top-0" });
   const [text] = useTypewriter({
-    words: ["Full Stack Developer", "Web Developer", "Programmer", "Coder"],
+    words: ["Full Stack Developer", "Programmer"],
     loop: 0,
   });
 
@@ -78,7 +78,7 @@ const HomeContent = (props: Props) => {
             </div>
           </div>
           {/* Body */}
-          <div className="flex flex-col gap-1 bg-vscodeClr p-3">
+          <div className="flex flex-col gap-1 bg-vscodeClr p-3  tracking-tight md:tracking-normal">
             <div>
               <p className=" text-base md:text-xl ">
                 <span className="mr-2 text-sm text-[#636c83]">1</span>Hello!
@@ -105,7 +105,7 @@ const HomeContent = (props: Props) => {
               <span className="">
                 <span className="mr-2 text-sm text-[#636c83]">4</span>I&apos;m a{" "}
               </span>
-              <span className=" text-priClr">
+              <span className="tracking-tighter  text-priClr md:tracking-normal">
                 {text}
                 <Cursor cursorStyle="|" />
               </span>

@@ -6,7 +6,7 @@ import About5 from "../../../public/about5.png";
 import About6 from "../../../public/about6.png";
 import About7 from "../../../public/about7.png";
 
-export const aboutData = [
+export const educationData = [
   {
     image: About1,
     institution: "Al-Ameen Higher Secondary School",

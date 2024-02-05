@@ -30,7 +30,7 @@ export const LanguagesShowcase = [
   {
     name: "Next.js",
     image: NextJs2Svg,
-    position: "top-[50%] left-[50%] h-[6rem] w-[6rem]",
+    position: "top-[50%] left-[50%] md:h-[6rem] md:w-[6rem]",
     animatePosition: {
       isXAxis: false,
       initial: "-45%",
@@ -40,62 +40,62 @@ export const LanguagesShowcase = [
   {
     name: "React",
     image: React1,
-    position: "top-[45%] left-[25%] h-[6rem] w-[6rem]  ",
+    position: "top-[45%] left-[25%] md:h-[6rem] md:w-[6rem]  ",
   },
   {
     name: "Node.js",
     image: Nodejs1,
-    position: "top-[55%] left-[75%] h-[6rem] w-[6rem]  ",
+    position: "top-[55%] left-[75%] md:h-[6rem] md:w-[6rem]  ",
   },
   {
     name: "CSS",
     image: Css1,
-    position: "top-[15%] left-[85%] h-[6rem] w-[6rem]  ",
+    position: "top-[15%] left-[85%] md:h-[6rem] md:w-[6rem]  ",
   },
   {
     name: "Express.js",
     image: Express2,
-    position: "top-[15%] left-[20%] h-[6rem] w-[6rem]  ",
+    position: "top-[15%] left-[20%] md:h-[6rem] md:w-[6rem]  ",
   },
   {
     name: "HTML",
     image: Html1,
-    position: "top-[5%] left-[55%] h-[6rem] w-[6rem]  ",
+    position: "top-[5%] left-[55%] md:h-[6rem] md:w-[6rem]  ",
   },
   {
     name: "Javascript",
     image: Js1,
-    position: "top-[25%] left-[45%] h-[6rem] w-[6rem]  ",
+    position: "top-[25%] left-[45%] md:h-[6rem] md:w-[6rem]  ",
   },
   {
     name: "MongoDB",
     image: Mongodb3,
-    position: "top-[70%] left-[20%] h-[6rem] w-[6rem]  ",
+    position: "top-[70%] left-[20%] md:h-[6rem] md:w-[6rem]  ",
   },
   {
     name: "MySQL",
     image: Mysql1,
-    position: "top-[75%] left-[50%] h-[6rem] w-[6rem]  ",
+    position: "top-[75%] left-[50%] md:h-[6rem] md:w-[6rem]  ",
   },
   {
     name: "TailwindCSS",
     image: Tailwind1,
-    position: "top-[80%] left-[75%] h-[6rem] w-[6rem]  ",
+    position: "top-[80%] left-[75%] md:h-[6rem] md:w-[6rem]  ",
   },
   {
     name: "C",
     image: C,
-    position: "top-[35%] left-[65%] h-[`5rem] w-[`5rem]  ",
+    position: "top-[35%] left-[65%] md:h-[5rem] md:w-[5rem]  ",
   },
   {
     name: "Python",
     image: Python,
-    position: "top-[37%] left-[95%] h-[5rem] w-[5rem]  ",
+    position: "top-[37%] left-[95%] md:h-[5rem] md:w-[5rem]  ",
   },
   {
     name: "Java",
     image: Java,
-    position: "top-[90%] left-[35%] h-[5rem] w-[5rem]  ",
+    position: "top-[90%] left-[35%] md:h-[5rem] md:w-[5rem]  ",
   },
 ];
 
