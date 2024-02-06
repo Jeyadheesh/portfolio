@@ -2,23 +2,24 @@ import { Variants } from "framer-motion";
 import Ebuddy1 from "../../../public/ebuddy1.png";
 import Ebuddy2 from "../../../public/ebuddy2.png";
 import Ebuddy3 from "../../../public/ebuddy3.png";
+// const isDesktop =
 
 export const ProjectsImageTemplate: ProjectsImageTemplateProp[] = [
   {
     image: Ebuddy1,
     lposition:
-      "group-hover:translate-x-3 group-hover:translate-y-3   -rotate-6",
+      "md:group-hover:translate-x-3 md:group-hover:translate-y-3 group-hover:translate-x-1 group-hover:translate-y-1   -rotate-6",
     rposition:
-      "group-hover:-translate-x-3 group-hover:translate-y-3   rotate-6",
+      "md:group-hover:-translate-x-3 md:group-hover:translate-y-3 group-hover:-translate-x-1 group-hover:translate-y-1   rotate-6",
     z: 20,
     variant1: {
       linitial: {
-        translateX: -500,
+        translateX: -280,
         translateY: 0,
         transition: { duration: 0 },
       },
       rinitial: {
-        translateX: 500,
+        translateX: 280,
         translateY: 0,
         transition: { duration: 0 },
       },
@@ -40,12 +41,12 @@ export const ProjectsImageTemplate: ProjectsImageTemplateProp[] = [
     z: 10,
     variant1: {
       linitial: {
-        translateX: -300,
+        translateX: -250,
         translateY: 0,
         transition: { duration: 0 },
       },
       rinitial: {
-        translateX: 300,
+        translateX: 250,
         translateY: 0,
         transition: { duration: 0 },
       },
@@ -62,18 +63,18 @@ export const ProjectsImageTemplate: ProjectsImageTemplateProp[] = [
   {
     image: Ebuddy2,
     lposition:
-      "group-hover:-translate-x-3 group-hover:-translate-y-3   -rotate-6",
+      "md:group-hover:-translate-x-3 md:group-hover:-translate-y-3 group-hover:-translate-x-1 group-hover:-translate-y-1   -rotate-6",
     rposition:
-      "group-hover:translate-x-3 group-hover:-translate-y-3   rotate-6",
+      "md:group-hover:translate-x-3 md:group-hover:-translate-y-3 group-hover:translate-x-1 group-hover:-translate-y-1   rotate-6",
     z: 0,
     variant1: {
       linitial: {
-        translateX: -200,
+        translateX: -150,
         translateY: 0,
         transition: { duration: 0 },
       },
       rinitial: {
-        translateX: 200,
+        translateX: 150,
         translateY: 0,
         transition: { duration: 0 },
       },

@@ -82,9 +82,9 @@ const ProjectsContent = (props: Props) => {
     fetchGitInfo();
   }, []);
 
-  useEffect(() => {
-    // console.log("projectsData : ", projectsData.length);
-  }, [projectsData]);
+  // useEffect(() => {
+  //   // console.log("projectsData : ", projectsData.length);
+  // }, [projectsData]);
 
   return (
     <div className=" text-white">

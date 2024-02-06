@@ -17,9 +17,9 @@ const Navbar = ({ scrollDir }: Props) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const tref = useRef<HTMLDivElement | null>(null);
 
-  useEffect(() => {
-    // console.log(activeElement);
-  }, [activeElement]);
+  // useEffect(() => {
+  //   // console.log(activeElement);
+  // }, [activeElement]);
 
   return (
     <div
@@ -30,7 +30,7 @@ const Navbar = ({ scrollDir }: Props) => {
           : scrollDir == "down"
             ? "-translate-y-full"
             : "translate-y-0  backdrop-blur-sm"
-      } shado-lg   fixed top-0 z-50 block h-[10vh] w-full bg-gray-900/80   text-slate-50 shadow-white transition-transform duration-500  md:block md:h-[13vh] `}
+      } shado-lg   fixed top-0 z-40 block h-[10vh] w-full bg-gray-900/80   text-slate-50 shadow-white transition-transform duration-500  md:block md:h-[13vh] `}
     >
       <div className="flex h-full items-center justify-around font-bold ">
         <Link href={"/"} className="borde  relative h-full w-24 border-white">
@@ -60,9 +60,9 @@ const Navbar = ({ scrollDir }: Props) => {
           <motion.div
             className={`${
               isMenuOpen
-                ? "fixed right-0 top-0 z-50 h-screen w-screen rounded-none"
-                : "fixed right-0 top-0 h-0 w-0 overflow-hidden rounded-none"
-            } z-30 flex flex-col items-center justify-center gap-5 bg-gray-900/95`}
+                ? "fixed right-0 top-0 z-40 h-[110vh] w-[110vw] rounded-none"
+                : "fixed right-0 top-0 z-40 h-0 w-0 overflow-hidden rounded-none"
+            }  flex flex-col items-center justify-center gap-5 bg-gray-900/95`}
           >
             {navbarData.map((data, i) => {
               return (

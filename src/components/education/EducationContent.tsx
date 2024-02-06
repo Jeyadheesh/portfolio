@@ -148,11 +148,11 @@ const EducationContent = (props: Props) => {
             <motion.div
               key={i}
               variants={item}
-              className="borde mx-auto flex  w-fit  flex-col  gap-2 border-red-900 pb-3 text-slate-50 md:gap-3"
+              className="borde mx-auto flex w-fit flex-col gap-2 border-red-900 pb-3 text-slate-50 md:gap-3"
             >
               {/* Box */}
               <motion.div
-                className={`borde item-center  group relative  flex justify-center gap-7 border-white`}
+                className={`borde item-center  group relative  flex items-center justify-center gap-7 border-white`}
               >
                 {data.images?.map((d, i) => {
                   return (
