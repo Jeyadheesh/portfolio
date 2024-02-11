@@ -64,11 +64,13 @@ const ProjectsContent = (props: Props) => {
       let finalInfo = gitInfo;
 
       for (let index = 0; index < gitInfo.length; index++) {
-        const element = await fetchReadme(gitInfo[index].name);
-        finalInfo[index] = {
-          ...gitInfo[index],
-          readmedata: element as string[],
-        };
+        if (gitInfo[index].name != "Jeyadheesh") {
+          const element = await fetchReadme(gitInfo[index].name);
+          finalInfo[index] = {
+            ...gitInfo[index],
+            readmedata: element as string[],
+          };
+        }
       }
       // console.log(finalInfo);
       setProjectsData(finalInfo);

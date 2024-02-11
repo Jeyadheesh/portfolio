@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import DashedLine from "./DashedLine";
 import Image from "next/image";
 
-import { aboutData } from "../education/EducationData";
+import { educationData } from "../education/EducationData";
 import { useTypewriter } from "react-simple-typewriter";
 import SingleLine from "./SingleLine";
 import BackgroundSvg from "./BackgroundSvg";
@@ -127,7 +127,7 @@ const AboutContent = (props: Props) => {
           // viewport={{ once: true }}
           className="mx-aut borderr w-[50%] border-white text-black"
         >
-          {aboutData.map((data, i) => {
+          {educationData.map((data, i) => {
             return (
               <motion.div
                 key={i}

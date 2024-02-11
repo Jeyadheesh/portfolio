@@ -27,9 +27,9 @@ export default function Home() {
   //   useRef<HTMLDivElement>(),
   // ];
 
-  const viewEnter = (e: any) => {
-    setActiveElement(e.target.id);
-  };
+  // const viewEnter = (e: any) => {
+  //   setActiveElement(e.target.id);
+  // };
 
   useEffect(() => {
     let previousScrollYPosition = window.scrollY;
