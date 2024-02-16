@@ -81,7 +81,7 @@ const ProjectsContent = (props: Props) => {
   };
 
   useEffect(() => {
-    fetchGitInfo();
+    // fetchGitInfo();
   }, []);
 
   // useEffect(() => {
