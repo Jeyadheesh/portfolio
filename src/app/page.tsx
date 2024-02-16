@@ -1,35 +1,20 @@
 "use client";
 import Navbar from "@/components/navbar/Navbar";
 import HomeContent from "@/components/home/HomeContent";
-import Image from "next/image";
 import AboutContent from "@/components/skills/SkillsContent";
 import ProjectsContent from "@/components/projects/ProjectsContent";
 import ContactContent from "@/components/contact/ContactContent";
 import EducationContent from "@/components/education/EducationContent";
-import ScrollDetector from "@/components/elements/ScrollUp";
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { useNavbar } from "@/store/useNavbar";
 // import { useIsVisible } from "@/components/elements/useIsVisible";
-import { useInView } from "react-intersection-observer";
 
 export default function Home() {
   const { activeElement, setActiveElement } = useNavbar();
   const [topElementId, setTopElementId] = useState<number | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [scrollDir, setScrollDir] = useState("up");
-
-  // let refs = [
-  //   useRef<HTMLDivElement>(),
-  //   useRef<HTMLDivElement>(),
-  //   useRef<HTMLDivElement>(),
-  //   useRef<HTMLDivElement>(),
-  //   useRef<HTMLDivElement>(),
-  // ];
-
-  // const viewEnter = (e: any) => {
-  //   setActiveElement(e.target.id);
-  // };
 
   useEffect(() => {
     let previousScrollYPosition = window.scrollY;
@@ -79,10 +64,6 @@ export default function Home() {
         setScrollDir("down");
       });
     };
-  }, []);
-
-  useEffect(() => {
-    // console.log(inView, entry?.target.id);
   }, []);
 
   return (
