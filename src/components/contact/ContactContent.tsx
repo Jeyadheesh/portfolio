@@ -46,11 +46,11 @@ const ContactContent = (props: Props) => {
     try {
       setIsLoading(true);
       let iserror = false;
-      const isEmpty = Object.values(mailparams).forEach((m) => {
-        if (m === "" || /^\s*$/.test(m) == true) {
-          iserror = true;
-        }
-      });
+      // const isEmpty = Object.values(mailparams).forEach((m) => {
+      //   if (m === "" || /^\s*$/.test(m) == true) {
+      //     iserror = true;
+      //   }
+      // });
 
       if (iserror) {
         // console.log(iserror);
