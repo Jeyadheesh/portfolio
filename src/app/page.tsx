@@ -16,55 +16,55 @@ export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [scrollDir, setScrollDir] = useState("up");
 
-  useEffect(() => {
-    let previousScrollYPosition = window.scrollY;
+  // useEffect(() => {
+  //   let previousScrollYPosition = window.scrollY;
 
-    const handleScroll = () => {
-      const currentScrollYPosition = window.scrollY;
+  //   const handleScroll = () => {
+  //     const currentScrollYPosition = window.scrollY;
 
-      if (currentScrollYPosition > previousScrollYPosition) {
-        setScrollDir("down");
-      } else {
-        setScrollDir("up");
-      }
+  //     if (currentScrollYPosition > previousScrollYPosition) {
+  //       setScrollDir("down");
+  //     } else {
+  //       setScrollDir("up");
+  //     }
 
-      previousScrollYPosition = currentScrollYPosition;
-      if (containerRef.current) {
-        const scrollTop = window.scrollY;
-        const divElements = containerRef.current.children;
+  //     previousScrollYPosition = currentScrollYPosition;
+  //     if (containerRef.current) {
+  //       const scrollTop = window.scrollY;
+  //       const divElements = containerRef.current.children;
 
-        let maxTop = -Infinity;
-        let currentTopElementId: number | null = null;
+  //       let maxTop = -Infinity;
+  //       let currentTopElementId: number | null = null;
 
-        for (let i = 1; i < divElements.length; i++) {
-          const rect = (divElements[i] as HTMLElement).getBoundingClientRect();
+  //       for (let i = 1; i < divElements.length; i++) {
+  //         const rect = (divElements[i] as HTMLElement).getBoundingClientRect();
 
-          if (
-            (rect.top <= 150 && rect.top >= 0) ||
-            (rect.bottom >= 350 && rect.bottom <= 400)
-          ) {
-            setActiveElement(divElements[i].id as Pages);
-          }
-          // if (i == 2) {
-          //   console.log(rect.top, rect.bottom, scrollTop);
-          // }
-        }
+  //         if (
+  //           (rect.top <= 150 && rect.top >= 0) ||
+  //           (rect.bottom >= 350 && rect.bottom <= 400)
+  //         ) {
+  //           setActiveElement(divElements[i].id as Pages);
+  //         }
+  //         // if (i == 2) {
+  //         //   console.log(rect.top, rect.bottom, scrollTop);
+  //         // }
+  //       }
 
-        setTopElementId(currentTopElementId);
-      }
-    };
+  //       setTopElementId(currentTopElementId);
+  //     }
+  //   };
 
-    window.addEventListener("scroll", handleScroll);
-    window.addEventListener("click", () => {
-      setScrollDir("down");
-    });
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.addEventListener("click", () => {
-        setScrollDir("down");
-      });
-    };
-  }, []);
+  //   window.addEventListener("scroll", handleScroll);
+  //   window.addEventListener("click", () => {
+  //     setScrollDir("down");
+  //   });
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //     window.addEventListener("click", () => {
+  //       setScrollDir("down");
+  //     });
+  //   };
+  // }, []);
 
   return (
     <div ref={containerRef} className="w-full bg-gray-900 text-slate-50">
