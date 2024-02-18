@@ -161,7 +161,9 @@ const ProjectBox = ({ keyy, isLeft, projectData }: Props) => {
                       // Change this for image
                       // src={projectData.readmedata[i]}
                       src={
-                        "https://github.com/Jeyadheesh/EBuddy/assets/110662156/12c7dccb-ee02-43e3-bbc5-30ec095eb4d2"
+                        projectData.readmedata[
+                          projectData.readmedata.length - (i + 1)
+                        ] as string
                       }
                       className="border-[3px]  border-priClr object-cover"
                       alt="Project Image"
