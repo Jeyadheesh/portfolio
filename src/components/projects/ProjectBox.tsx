@@ -156,18 +156,20 @@ const ProjectBox = ({ keyy, isLeft, projectData }: Props) => {
                         : ProjectsImageTemplate[data].rposition
                     } relative h-full w-full overflow-hidden transition-transform duration-150 group-hover:shadow-md group-hover:shadow-priClr`}
                   >
-                    <Image
-                      fill
-                      // Change this for image
-                      // src={projectData.readmedata[i]}
-                      src={
-                        projectData.readmedata[
-                          projectData.readmedata.length - (i + 1)
-                        ] as string
-                      }
-                      className="border-[3px]  border-priClr object-cover"
-                      alt="Project Image"
-                    />
+                    {projectData.readmedata && (
+                      <Image
+                        fill
+                        // Change this for image
+                        // src={projectData.readmedata[i]}
+                        src={
+                          projectData.readmedata[
+                            projectData.readmedata.length - (i + 1)
+                          ] as string
+                        }
+                        className="border-[3px]  border-priClr object-cover"
+                        alt="Project Image"
+                      />
+                    )}
                   </div>
                   {/* <div>{data}</div> */}
                 </motion.div>
