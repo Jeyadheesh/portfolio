@@ -81,9 +81,9 @@ const ContactContent = (props: Props) => {
     }
   };
 
-  useEffect(() => {
-    console.log(mailparams);
-  }, [mailparams]);
+  // useEffect(() => {
+  //   console.log(mailparams);
+  // }, [mailparams]);
 
   const arrow: Variants = {
     initial: { rotate: -45 },

@@ -72,7 +72,7 @@ const ProjectsContent = (props: Props) => {
           };
         }
       }
-      console.log(finalInfo);
+      // console.log(finalInfo);
       setProjectsData(finalInfo);
       setIsLoading(false);
     } catch (error) {
