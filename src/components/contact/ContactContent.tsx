@@ -45,14 +45,15 @@ const ContactContent = (props: Props) => {
   const sendEmail = async () => {
     try {
       setIsLoading(true);
-      let iserror = false;
-      const isEmpty = Object.values(mailparams).forEach((m) => {
-        if (m === "" || /^\s*$/.test(m) == true) {
-          iserror = true;
+      const isEmpty = Object.entries(mailparams).some(([key, m]) => {
+        if (key === "email") {
+          // console.log(m);
+          return !/^\S+@\S+\.\S+$/.test(m);
         }
+        return m === "" || /^\s*$/.test(m);
       });
 
-      if (iserror) {
+      if (isEmpty) {
         // console.log(iserror);
         errorNotify("Enter Valid Inputs 🐻‍❄️");
         setIsLoading(false);
@@ -62,7 +63,7 @@ const ContactContent = (props: Props) => {
       const response = await emailjs.send(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICEID as string,
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATEID as string,
-        templateParams,
+        mailparams,
         process.env.NEXT_PUBLIC_EMAILJS_PUBLICID,
       );
       // console.log(response.status);
@@ -80,9 +81,9 @@ const ContactContent = (props: Props) => {
     }
   };
 
-  // useEffect(() => {
-  //   console.log(mailparams);
-  // }, [mailparams]);
+  useEffect(() => {
+    console.log(mailparams);
+  }, [mailparams]);
 
   const arrow: Variants = {
     initial: { rotate: -45 },
