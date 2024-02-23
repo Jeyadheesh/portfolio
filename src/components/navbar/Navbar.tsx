@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
-import Logo from "../../../public/logo2.png";
+import Logo from "../../../public/jeilogo.png";
 import Link from "next/link";
 import ThreeLine from "../elements/ThreeLine";
 import { motion } from "framer-motion";
@@ -33,7 +33,7 @@ const Navbar = ({ scrollDir }: Props) => {
       } shado-lg   fixed top-0 z-40 block h-[10vh] w-full bg-gray-900/80   text-slate-50 shadow-white transition-transform duration-500  md:block md:h-[13vh] `}
     >
       <div className="flex h-full items-center justify-around font-bold ">
-        <Link href={"/"} className="borde  relative h-full w-24 border-white">
+        <Link href={"/"} className="borde  relative h-full w-20 border-white">
           <Image alt="Logo" src={Logo} fill className="object-contain" />
         </Link>
 

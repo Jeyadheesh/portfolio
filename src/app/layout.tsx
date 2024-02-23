@@ -23,6 +23,7 @@ const lato = Lato({ subsets: ["latin"], weight: ["400"] });
 export const metadata: Metadata = {
   title: "Jeyadheesh N",
   description: "Jeyadheesh N - Full Stack Developer",
+  icons: "/favicon.ico",
 };
 
 export default function RootLayout({
